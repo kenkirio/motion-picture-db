@@ -56,6 +56,7 @@
 					<option value="production">Production</option>
 					<option value="budget">Budget</option>
 					<option value="genre">Genre</option>
+					<option value="like_count">Likes</option>
 				</select>
 				<select class="form-select mx-2" name="equality" id="equality">
 					<option value='='>=</option>	
@@ -135,9 +136,9 @@
 		}
 
 		$columns = array();
-		$columns ["motionpicture"] = ["Name", "Genre", "Rating", "Production", "Budget"];
-		$columns ["movie"] = ["Name", "Genre", "Rating", "Production", "Budget", "Box Office Collection"];
-		$columns ["series"] = ["Name", "Genre", "Rating", "Production", "Budget", "Season Count"];
+		$columns ["motionpicture"] = ["Name", "Genre", "Rating", "Production", "Budget", "Likes"];
+		$columns ["movie"] = ["Name", "Genre", "Rating", "Production", "Budget", "Likes", "Box Office Collection"];
+		$columns ["series"] = ["Name", "Genre", "Rating", "Production", "Budget", "Likes", "Season Count"];
 		$columns ["people"] = ["Name", "Nationality", "Birthday", "Gender", "Role"];
 		$columns ["role"] = ["Motion Picture", "Person", "Role"];
 		$columns ["award"] = ["Motion Picture", "Person", "Award Name", "Award Year"];
@@ -145,22 +146,23 @@
 		$columns ["likes"] = ["Motion Picture", "User"];
 
 		$querySelect = array();
-		$querySelect ["motionpicture"] = "Name, genre_name, Rating, Production, Budget";
-		$querySelect ["movie"] = "Name, genre_name, Rating, Production, Budget, Boxoffice_Collection";
-		$querySelect ["series"] = "Name, genre_name, Rating, Production, Budget, Season_Count";
+		$querySelect ["motionpicture"] = "name, genre_name, rating, production, budget, like_count";
+		$querySelect ["movie"] = "name, genre_name, rating, production, budget, like_count, boxoffice_collection";
+		$querySelect ["series"] = "name, genre_name, rating, production, budget, like_count, season_count";
 		$querySelect ["people"] = "name, nationality, dob, gender, role_name";
 		$querySelect ["role"] = "mp_name, p_name, role_name";
 		$querySelect ["award"] = "mp_name, p_name, award_name, award_year";
 		$querySelect ["location"] = "mp_name, country, city, zip";
-		$querySelect ["likes"] = "Uemail, Motion_Picture";
+		$querySelect ["likes"] = "mp_name, user_name";
 		
 					
 		// Preset queries
 		if(isset($_POST["allMovies"])) {
 			$title = "Movies";
 			$table = "movie";
-			$query = "SELECT $querySelect[$table]
-					FROM motionpicture NATURAL JOIN genre NATURAL JOIN movie";
+			$query = "WITH liked_mps AS (SELECT mpid, COUNT(*) AS like_count FROM likes GROUP BY mpid)
+					SELECT $querySelect[$table]
+					FROM movie NATURAL JOIN genre NATURAL JOIN motionpicture NATURAL JOIN liked_mps";
 		} elseif(isset($_POST["allActors"])) {
 			$title = "Actors";
 			$table = "people";
@@ -181,8 +183,9 @@
 			// Edge cases
 			if ($table == "motionpicture") {
 				$title = "Motion Pictures ";
-				$query = "SELECT $querySelect[$table]
-					FROM $table NATURAL JOIN genre
+				$query = "WITH liked_mps AS (SELECT mpid, COUNT(*) AS like_count FROM likes GROUP BY mpid)
+					SELECT $querySelect[$table]
+					FROM $table NATURAL JOIN genre NATURAL JOIN liked_mps
 					WHERE $attribute $equality '$parameter'";
 			} else if ($table == "movie" || $table == "series") {
 				if($table == "movie"){
@@ -190,8 +193,9 @@
 				} else{
 					$title = "Series ";
 				}
-				$query = "SELECT $querySelect[$table]
-					FROM $table NATURAL JOIN genre NATURAL JOIN motionpicture
+				$query = "WITH liked_mps AS (SELECT mpid, COUNT(*) AS like_count FROM likes GROUP BY mpid)
+					SELECT $querySelect[$table]
+					FROM $table NATURAL JOIN genre NATURAL JOIN motionpicture NATURAL JOIN liked_mps
 					WHERE $attribute $equality '$parameter'";
 			} else if ($table == "people") {
 				$title = "People ";
@@ -219,7 +223,7 @@
 				$title = "Likes ";
 				$query = "WITH mp_names AS (SELECT mpid, name AS mp_name FROM motionpicture),
 					user_names AS (SELECT uemail, name AS user_name FROM member)
-					SELECT mp_name, user_name
+					SELECT $querySelect[$table]
 					FROM mp_names NATURAL JOIN user_names NATURAL JOIN $table
 					WHERE $attribute $equality '$parameter'";
 			}
@@ -304,12 +308,14 @@
 			$("#attribute").append("<option value='production'>Production</option>");
 			$("#attribute").append("<option value='budget'>Budget</option>");
 			$("#attribute").append("<option value='genre_name'>Genre</option>");
+			$("#attribute").append("<option value='like_count'>Likes</option>");
 		} else if (customDB === "movie") {
 			$("#attribute").append("<option value='name'>Name</option>");
 			$("#attribute").append("<option value='rating'>Rating</option>");
 			$("#attribute").append("<option value='production'>Production</option>");
 			$("#attribute").append("<option value='budget'>Budget</option>");
 			$("#attribute").append("<option value='genre_name'>Genre</option>");
+			$("#attribute").append("<option value='like_count'>Likes</option>");
 			$("#attribute").append("<option value='boxoffice_collection'>Box Office Collection</option>");
 		} else if (customDB === "series") {
 			$("#attribute").append("<option value='name'>Name</option>");
@@ -317,6 +323,7 @@
 			$("#attribute").append("<option value='production'>Production</option>");
 			$("#attribute").append("<option value='budget'>Budget</option>");
 			$("#attribute").append("<option value='genre_name'>Genre</option>");
+			$("#attribute").append("<option value='like_count'>Likes</option>");
 			$("#attribute").append("<option value='season_count'>Season Count</option>");
 		} else if (customDB === "people") {
 			$("#attribute").append("<option value='name'>Name</option>");
@@ -339,7 +346,7 @@
 			$("#attribute").append("<option value='zip'>Zip</option>");
 			$("#attribute").append("<option value='mp_name'>Motion Picture</option>");
 		} else if (customDB === "likes") {
-			$("#attribute").append("<option value='uemail'>User</option>");
+			$("#attribute").append("<option value='uemail'>User Email</option>");
 			$("#attribute").append("<option value='mp_name'>Motion Picture</option>");
 		}
 		$("#equality").empty();
@@ -352,7 +359,7 @@
 		$("#equality").empty();
 		
 		// Numeric attributes
-		if (["rating", "budget", "age", "boxoffice_collection", "season_count", "dob", "award_year", "num likes"].includes(customAttribute)) {
+		if (["rating", "budget", "like_count", "age", "boxoffice_collection", "season_count", "dob", "award_year", "num likes"].includes(customAttribute)) {
 			$("#equality").append("<option value='<'><</option>");
 			$("#equality").append("<option value='<='><=</option>")
 			$("#equality").append("<option value='='>=</option>")
