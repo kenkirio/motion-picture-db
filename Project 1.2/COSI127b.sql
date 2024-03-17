@@ -68,28 +68,6 @@ INSERT INTO `Genre` (`mpid`, `genre_name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `guests`
---
-
-CREATE TABLE `guests` (
-  `id` int(12) NOT NULL,
-  `first_name` varchar(32) NOT NULL,
-  `last_name` varchar(32) NOT NULL,
-  `age` int(3) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `guests`
---
-
-INSERT INTO `guests` (`id`, `first_name`, `last_name`, `age`) VALUES
-(444, 'Gregory', 'Smith', 32),
-(555, 'Hannah', 'Birch', 17),
-(666, 'Bob', 'Dylan', 58);
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `Likes`
 --
 
