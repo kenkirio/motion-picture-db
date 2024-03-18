@@ -19,14 +19,12 @@
     </div>
 
 	<!-- Directory buttons -->
-	<div class="d-flex justify-content-center">
+	<div class="d-flex justify-content-center my-3">
 
 		<div class="mx-3">
-			<form name="homeForm" id="homeForm" class="justify-content-center" method="POST" action="index.php">
-				<button type="button" class="btn btn-primary" id="returnHome">
-					Return Home
-				</button>
-			</form>
+			<button type="button" class="btn btn-primary" id="goHome">
+				Return Home
+			</button>
 		</div>
 
 	</div>
@@ -250,7 +248,7 @@
 			echo "Error: " . $e->getMessage();
 		}
 		echo "</table>";
-		
+
 		// destroy connection
 		$conn = null;
     ?>
@@ -259,7 +257,7 @@
 
 <script>
 	// return home
-	$("#returnHome").click(function(e) {
+	$("#goHome").click(function(e) {
 		window.location.href = document.referrer;
 	});
 </script>

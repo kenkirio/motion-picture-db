@@ -18,40 +18,24 @@
 <body>
 	<div class="container my-3">
 		<h1 style="text-align:center">COSI 127b PA 1.3</h1>
+		<h3 style="text-align:center">Select Query Filters</h3>
 	</div>
 
-	<!-- Like a movie -->
-	<div class="d-flex justify-content-center my-5">
-		<form name="likeMovieForm" class="form-inline" method="POST" action="index.php">
-			<div class="mx-2 font-weight-bold">Like a movie!</div>
-			<label for="email">Email:</label><br>
-			<input type="text" class="form-control mx-2" name="email" id="email">
-
-			<label for="likedMP">Movie:</label><br>
-			<input type="text" class="form-control mx-2" name="likedMP" id="likedMP">
-
-			<button type="submit" class="btn btn-primary mx-2">Like</button>
-		</form>
-	</div>
-
-	<!-- Premade buttons -->
-	<div class="d-flex justify-content-center">
+	<!-- Directory buttons -->
+	<div class="d-flex justify-content-center my-3">
 		<div class="mx-3">
-			<form id="allMoviesForm" method="post" action="query.php">
-				<div class="input-group mb-3">
-					<button class="btn btn-primary" type="submit" name="allMovies" id="button-addon2">View All Movies</button>
-				</div>
-			</form>
+			<button type="button" class="btn btn-primary" id="goHome">
+				Return Home
+			</button>
 		</div>
 
 		<div class="mx-3">
-			<form id="allActorsForm" method="post" action="query.php">
-				<div class="input-group mb-3">
-					<button class="btn btn-primary" type="submit" name="allActors" id="button-addon2">View All Actors</button>
-				</div>
-			</form>
+			<button type="button" class="btn btn-primary" id="goNext">
+				Next
+			</button>
 		</div>
 	</div>
+	
 
 	<!-- Acordian selection menu -->
 	<div class="d-flex justify-content-center">
@@ -65,9 +49,11 @@
 					</h5>
 				</div>
 
-				<div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+				<div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
 					<div class="card-body">
-						bananas
+						<form id="allMoviesForm" method="post" action="query.php" class="my-2">
+							<button class="btn btn-primary" type="submit" name="allMovies" id="button-addon2">View All Movies</button>
+						</form>
 					</div>
 				</div>
 			</div>
@@ -81,7 +67,9 @@
 				</div>
 				<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
 					<div class="card-body">
-						Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+						<form id="allActorsForm" method="post" action="query.php" class="my-2">
+							<button class="btn btn-primary" type="submit" name="allActors" id="button-addon2">View All Actors</button>
+						</form>
 					</div>
 				</div>
 			</div>
@@ -89,7 +77,7 @@
 				<div class="card-header" id="headingThree" >
 					<h5 class="mb-0">
 						<button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-							Collaberation
+							Collaboration
 						</button>
 					</h5>
 				</div>
@@ -155,6 +143,18 @@
 	</div>
 
 </body>
+
+<script>
+	// return home
+	$("#goHome").click(function(e) {
+		window.location.href = "http://localhost/COSI127b/motion-picture-db/Project%201.3/";
+	});
+
+	// return home
+	$("#goNext").click(function(e) {
+		window.location.href = "http://localhost/COSI127b/motion-picture-db/Project%201.3/selectFields.php";
+	});
+</script>
 
 <script>
 	// Show all tables
