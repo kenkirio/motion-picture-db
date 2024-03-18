@@ -40,11 +40,9 @@
 		</form>
 	</div>
 
-	<div class="d-flex justify-content-center my-3">
-
 	<?php
 
-	if(isset($_POST["like-movie"])) {
+	if(isset($_POST["email"])) {
 
 		$user = $_POST['email'];
 		$movie = $_POST['movie-name'];
@@ -78,7 +76,7 @@
 
 				if ($result == 0) {
 					echo "<div class='d-flex justify-content-center' style='color:red'>
-						<p style='text-align:center'>Error: motion picture not in database</p>
+						<p style='text-align:center'>Error: movie not in database</p>
 						</div>";
 				} else {
 
@@ -87,11 +85,17 @@
 						$stmt = $conn->prepare("INSERT INTO likes VALUES ('$user', '$v')");
 						$stmt->execute();
 					}
+
+					echo "<div class='d-flex justify-content-center' style='color:green'>
+						<p style='text-align:center'>Movie liked!</p>
+						</div>";
 				}
 			}
 		}
 		catch(PDOException $e) {
-			echo "Error: " . $e->getMessage();
+			echo "<div class='d-flex justify-content-center' style='color:red'>
+			<p style='text-align:center'>Error: " . $e->getMessage() . "</p>
+			</div>";
 		}
 
 		// destroy connection
@@ -100,7 +104,6 @@
 
 	?>
 
-	</div>
 </body>
 
 <script>
