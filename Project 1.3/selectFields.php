@@ -18,7 +18,7 @@
 <body>
 	<div class="container my-3">
 		<h1 style="text-align:center">COSI 127b PA 1.3</h1>
-		<h3 style="text-align:center">Select Query Fields</h3>
+		<h3 style="text-align:center">Select Display Fields</h3>
 	</div>
 
 	<!-- Directory buttons -->
@@ -35,7 +35,7 @@
 			</button>
 		</div>
 	</div>
-	
+
 
 	<!-- Acordian selection menu -->
 	<div class="d-flex justify-content-center">
@@ -51,8 +51,66 @@
 
 				<div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
 					<div class="card-body">
-						<form id="allMoviesForm" method="post" action="query.php" class="my-2">
-							<button class="btn btn-primary" type="submit" name="allMovies" id="button-addon2">View All Movies</button>
+						<div class="form-group">
+							<input type="checkbox" id="Crime" name="genre">
+							<label for="Crime" class="ml-2"> Title </label>
+						</div>
+						<div class="form-group">
+							<input type="checkbox" id="Crime" name="genre">
+							<label for="Crime" class="ml-2"> Rating </label>
+						</div>
+						<div class="form-group">
+							<input type="checkbox" id="Crime" name="genre">
+							<label for="Crime" class="ml-2"> Like Count </label>
+						</div>
+						<div class="form-group">
+							<input type="checkbox" id="Crime" name="genre">
+							<label for="Crime" class="ml-2"> Like User Email </label>
+						</div>
+						<div class="form-group">
+							<input type="checkbox" id="Crime" name="genre">
+							<label for="Crime" class="ml-2"> Like User Age </label>
+						</div>
+						<div class="form-group">
+							<input type="checkbox" id="Crime" name="genre">
+							<label for="Crime" class="ml-2"> Genre </label>
+						</div>
+						<div class="form-group">
+							<input type="checkbox" id="Crime" name="genre">
+							<label for="Crime" class="ml-2"> Role Count </label>
+						</div>
+						<div class="form-group">
+							<input type="checkbox" id="Crime" name="genre">
+							<label for="Crime" class="ml-2"> Award Count </label>
+						</div>
+						<div class="form-group">
+							<input type="checkbox" id="Crime" name="genre">
+							<label for="Crime" class="ml-2"> Award Name </label>
+						</div>
+						<div class="form-group">
+							<input type="checkbox" id="Crime" name="genre">
+							<label for="Crime" class="ml-2"> Production Company </label>
+						</div>
+						<div class="form-group">
+							<input type="checkbox" id="Crime" name="genre">
+							<label for="Crime" class="ml-2"> Country </label>
+						</div>
+						<div class="form-group">
+							<input type="checkbox" id="Crime" name="genre">
+							<label for="Crime" class="ml-2"> City </label>
+						</div>
+						<div class="form-group">
+							<input type="checkbox" id="Crime" name="genre">
+							<label for="Crime" class="ml-2"> Zip </label>
+						</div>
+						<div class="form-group">
+							<input type="checkbox" id="Crime" name="genre">
+							<label for="Crime" class="ml-2"> Box Office Collection (Movies Only) </label>
+						</div>
+						<div class="form-group">
+							<input type="checkbox" id="Crime" name="genre">
+							<label for="Crime" class="ml-2"> Season Count (Series Only) </label>
+						</div>
 						</form>
 					</div>
 				</div>
@@ -67,79 +125,101 @@
 				</div>
 				<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
 					<div class="card-body">
-						<form id="allActorsForm" method="post" action="query.php" class="my-2">
-							<button class="btn btn-primary" type="submit" name="allActors" id="button-addon2">View All Actors</button>
-						</form>
+						<div class="form-group">
+							<input type="checkbox" id="Crime" name="genre">
+							<label for="Crime" class="ml-2"> Name </label>
+						</div>
+						<div class="form-group">
+							<input type="checkbox" id="Crime" name="genre">
+							<label for="Crime" class="ml-2"> Birthday </label>
+						</div>
+						<div class="form-group">
+							<input type="checkbox" id="Crime" name="genre">
+							<label for="Crime" class="ml-2"> Role Count </label>
+						</div>
+						<div class="form-group">
+							<input type="checkbox" id="Crime" name="genre">
+							<label for="Crime" class="ml-2"> Role Name </label>
+						</div>
+						<div class="form-group">
+							<input type="checkbox" id="Crime" name="genre">
+							<label for="Crime" class="ml-2"> Award Count </label>
+						</div>
+						<div class="form-group">
+							<input type="checkbox" id="Crime" name="genre">
+							<label for="Crime" class="ml-2"> Award Name </label>
+						</div>
+						<div class="form-group">
+							<input type="checkbox" id="Crime" name="genre">
+							<label for="Crime" class="ml-2"> Gender </label>
+						</div>
+						<div class="form-group">
+							<input type="checkbox" id="Crime" name="genre">
+							<label for="Crime" class="ml-2"> Nationality </label>
+						</div>
+					</form>
 					</div>
 				</div>
 			</div>
 			<div class="card" style="width: 800px">
-				<div class="card-header" id="headingThree" >
+				<div class="card-header" id="headingThree">
 					<h5 class="mb-0">
 						<button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-							Collaboration
+							Select Top
 						</button>
 					</h5>
 				</div>
 				<div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
 					<div class="card-body">
-						Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-					</div>
+						<div class="form-inline">
+							<label for="email">Top</label>
+							<div class="form-group col-md-1">
+								<input type="number" id="quantity" name="quantity" min="1">							</div>
+						</div>
+						<div class="form-group my-3">
+							<h5>Order By</h5>
+							<div class="row">
+								<div class="mx-3">
+									<input type="radio" id="mpmovie" class="form-check form-check-inline" name="mptype">
+									<label for="mpmovie">Rating</label>
+								</div>
+								<div class="mx-3">
+									<input type="radio" id="mpmovie" class="form-check form-check-inline" name="mptype">
+									<label for="mpmovie">Like Count</label>
+								</div>
+								<div class="mx-3">
+									<input type="radio" id="mpmovie" class="form-check form-check-inline" name="mptype">
+									<label for="mpmovie">Like User Age</label>
+								</div>
+								<div class="mx-3">
+									<input type="radio" id="mpmovie" class="form-check form-check-inline" name="mptype">
+									<label for="mpmovie">Motion Picture Award Count</label>
+								</div>
+								<div class="mx-3">
+									<input type="radio" id="mpmovie" class="form-check form-check-inline" name="mptype">
+									<label for="mpmovie">Person Award Count</label>
+								</div>
+								<div class="mx-3">
+									<input type="radio" id="mpmovie" class="form-check form-check-inline" name="mptype">
+									<label for="mpmovie">Box Office Collection (Movie Only)</label>
+								</div>
+								<div class="mx-3">
+									<input type="radio" id="mpmovie" class="form-check form-check-inline" name="mptype">
+									<label for="mpmovie">Season Count (Series Only)</label>
+								</div>
+								<div class="mx-3">
+									<input type="radio" id="mpmovie" class="form-check form-check-inline" name="mptype">
+									<label for="mpmovie">Motion Picture Role Count</label>
+								</div>
+								<div class="mx-3">
+									<input type="radio" id="mpmovie" class="form-check form-check-inline" name="mptype">
+									<label for="mpmovie">Person Role Count</label>
+								</div>
+							</div>
+						</div>
 				</div>
 			</div>
 		</div>
-	</div>
-
-	<div class="justify-content-center mb-2">
-		<form name="customQueryForm" id="customQueryForm" class="justify-content-center" method="POST" action="query.php">
-			<div class="form-group row justify-content-md-center">
-				<div class="col-md-auto align-self-center">
-					<label for="table">View</label>
-				</div>
-				<div class="col-md-auto">
-					<select class="form-control" name="table-selector" id="table-selector">
-						<option value="motionpicture" selected="selected">Motion Pictures</option>
-						<option value="movie">Movies</option>
-						<option value="series">Series</option>
-						<option value="people">People</option>
-						<option value="role">Roles</option>
-						<option value="award">Awards</option>
-						<option value="location">Shooting Locations</option>
-						<option value="likes">Likes</option>
-					</select>
-				</div>
-			</div>
-			<div class="form-group row justify-content-md-center">
-				<div class="col col-lg-1 align-self-center">
-					<label for="attribute">Filter by</label>
-				</div>
-				<div class="col-md-auto">
-					<select class="form-control" name="attribute1" id="attribute1">
-						<option value="name">Name</option>
-						<option value="rating">Rating</option>
-						<option value="production">Production</option>
-						<option value="budget">Budget</option>
-						<option value="genre">Genre</option>
-						<option value="like_count">Likes</option>
-					</select>
-				</div>
-				<div class="col-md-auto">
-					<select class="form-control" name="equality1" id="equality1">
-						<option value='='>=</option>
-					</select>
-				</div>
-				<div class="col-md-auto">
-					<input class="form-control" type="text" class="m-2" name="parameter1" id="parameter1">
-				</div>
-				<div class="col col-lg-1">
-					<button type="submit" class="btn btn-primary" name="customQuery">Search</button>
-				</div>
-			</div>
-		</form>
-	</div>
-
-	<div class="d-flex justify-content-center mb-2">
-		<button type="button" class="btn btn-primary" id="addFilter">Add Additional Field</button>
 	</div>
 
 </body>

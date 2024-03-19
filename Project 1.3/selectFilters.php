@@ -51,144 +51,291 @@
 
 				<div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
 					<div class="card-body">
-						<form id="allMoviesForm" method="post" action="query.php" class="my-2">
-							<button class="btn btn-primary" type="submit" name="allMovies" id="button-addon2">View All Movies</button>
-							<br>
-							<br>
+						<div class="form-group my-3">
+							<h5>Title</h5>
+							<input type="text" class="form-control" id="mpname" name="mpname">
+						</div>
+						<div class="form-group my-3">
+							<h5>Type</h5>
 							<div class="row">
-								<div class="col">
-									<label for="mpname">
-										<h5>Motion Picture Name</h5>
-									</label><br>
-									<input type="text" class="form-control" id="mpname" name="mpname">
+								<div class="mx-3">
+									<input type="radio" id="mpmovie" class="form-check form-check-inline" name="mptype">
+									<label for="mpmovie">All</label>
 								</div>
-							</div>
-							<br>
-							<br>
-							<div class="row">
-								<h5> Motion Picture Type</h5>
-								<div class="col">
-									<!-- I think these should be on the same line and IDK why they aren't-->
+								<div class="mx-3">
+									<input type="radio" id="mpmovie" class="form-check form-check-inline" name="mptype">
 									<label for="mpmovie">Movie</label>
-									<input type="checkbox" id="mpmovie" class="form-check form-check-inline" name="mptype">
-									<br>
+								</div>
+								<div class="mx-3">
+									<input type="radio" id="mpseries" class="form-check form-check-inline" name="mptype">
 									<label for="mpseries">Series</label>
-									<input type="checkbox" id="mpseries" class="form-check form-check-inline" name="mptype">
 								</div>
 							</div>
-							<br>
-							<br>
-							<div class="row">
-								<div class="col">
-									<label for="mprating">
-										<h5>Rating</h5>
-									</label><br>
-									<!-- I stole this code from down below n i don't understand what you did entirely. can you change the menu cntents to have all the selection options and also try and get them on the same line? thank you :) -->
-									<div class="col-md-2">
-										<select class="form-control" name="equality1" id="equality1">
-											<option value='='>=</option>
-											<option value='>'>></option>
-											<option value='<'>&lt;</option>
-											<input type="text" id="mprating" name="mprating" style="display: inline-block">
-										</select>
-									</div>
-								</div>
-							</div>
-							<br>
-							<br>
-							<h5>Likes</h5><br>
-							<label for="mplikescount">
-								<h6>With Like Count</h6>
-							</label><br>
-							<div class="col-md-2">
-								<select class="form-control" name="equality1" id="equality1">
-									<option value='='>=</option>
-									<option value='>'>></option>
-									<option value='<'>&lt;</option>
-									<input type="text" id="mplikescount" name="mplikescount">
-								</select>
-							</div>
-							<br>
-							<br>
-							<div class="col-md-2">
-								<label for="mpuser">
-									<h6>By User</h6>
-								</label><br>
-								<input type="text" id="mpuser" name="mpuser">
-							</div>
-							<br>
-							<label for="mpage">
-								<h6>By Age Range</h6>
-							</label><br>
-							<div class="col-md-2">
-								<select class="form-control" name="equality1" id="equality1">
-									<option value='='>=</option>
-									<option value='>'>></option>
-									<option value='<'>&lt;</option>
-									<input type="text" id="mpage" name="mpage">
-								</select>
-							</div>
-							<br>
-							<br>
-							<label for="genre">
-								<h5>Genre</h5>
+						</div>
+						<div class="form-group my-3">
+							<label for="mprating">
+								<h5>Rating</h5>
 							</label>
-							<div class="col-md-2">
-								<label for="Crime"> Crime </label>
-								<input type="checkbox" id="Crime" name="genre">
-								<label for="Drama"> Drama </label>
-								<input type="checkbox" id="Drama" name="genre">
-								<label for="Action"> Action </label>
-								<input type="checkbox" id="Action" name="genre">
-								<label for="History"> History </label>
-								<input type="checkbox" id="History" name="genre">
-								<label for="War"> War </label>
-								<input type="checkbox" id="War" name="genre">
-								<label for="Thriller"> Thriller </label>
-								<input type="checkbox" id="Thriller" name="genre">
-								<label for="Adventure"> Adventure </label>
-								<input type="checkbox" id="Adventure" name="genre">
-								<label for="Fantasy"> Fantasy </label>
-								<input type="checkbox" id="Fantasy" name="genre">
-								<label for="Animation"> Animation </label>
-								<input type="checkbox" id="Animation" name="genre">
-								<label for="Comedy"> Comedy </label>
-								<input type="checkbox" id="Comedy" name="genre">
-								<label for="Sci-Fi"> Sci-Fi </label>
-								<input type="checkbox" id="Sci-Fi" name="genre">
-								<label for="Msytery"> Mystery </label>
-								<input type="checkbox" id="Msytery" name="genre">
+							<div class="row">
+								<div class="form-group col-md-2">
+									<input type="text" class="form-control" id="inputZip" placeholder="min">
+								</div>
+								<div class="my-2 mx-1">–</div>
+								<div class="form-group col-md-2">
+									<input type="text" class="form-control" id="inputZip" placeholder="max">
+								</div>
+							</div>							
+						</div>
+						<div class="form-group my-3">
+							<h5>Likes</h5>
+							<div class="row form-group ml-3">
+								<label class="my-2" for="mplikescount">
+									<h6>Like Count</h6>
+								</label>
+								<div class="form-group col-md-2">
+									<input type="text" class="form-control" id="inputZip" placeholder="min">
+								</div>
+								<div class="my-2 mx-1">–</div>
+								<div class="form-group col-md-2">
+									<input type="text" class="form-control" id="inputZip" placeholder="max">
+								</div>
 							</div>
-							<br>
-							<br>
-							<div class="col">
-								<label for="mpawards">
-									<h5>Awards</h5>
-								</label><br>
-								<input type="text" class="form-control" id="mpawards" name="mpawards">
+							<div class="row form-group ml-3">
+								<label class="my-2" for="mplikescount">
+									<h6>User Email</h6>
+								</label>
+								<div class="form-group mx-3">
+									<input type="text" class="form-control" id="inputZip">
+								</div>
 							</div>
-							<br>
-							<br>
-							<div class="col">
-								<label for="production">
-									<h5>Production Company</h5>
-								</label><br>
-								<input type="text" class="form-control" id="production" name="production">
+							<div class="row form-group ml-3">
+								<label class="my-2" for="mplikescount">
+									<h6>User Age</h6>
+								</label>
+								<div class="form-group col-md-2">
+									<input type="text" class="form-control" id="inputZip" placeholder="min">
+								</div>
+								<div class="my-2 mx-1">–</div>
+								<div class="form-group col-md-2">
+									<input type="text" class="form-control" id="inputZip" placeholder="max">
+								</div>
 							</div>
-							<br>
-							<br>
-							<div class="col">
-								<h5>Location</h5> <br>
-								<label for="country"> Country </label>
-								<input type="text" class="form-control form-inline" id="country" name="location">
-								<label for="city"> City </label>
-								<input type="text" class="form-control form-inline" id="city" name="location">
-								<label for="zip"> Zip </label>
-								<input type="text" class="form-control form-inline" id="zip" name="location">
+						</div>
+						<div class="form-group my-3">
+							<h5>Genre</h5>
+							<div class="form-row align-items-center">
+								<div class="col-2">
+									<input type="checkbox" id="Crime" name="genre">
+									<label for="Crime" class="ml-2"> Crime </label>
+								</div>
+								<div class="col-2">
+									<input type="checkbox" id="Drama" name="genre">
+									<label for="Drama" class="ml-2"> Drama </label>
+								</div>
+								<div class="col-2">
+									<input type="checkbox" id="Action" name="genre">
+									<label for="Action" class="ml-2"> Action </label>
+								</div>
+								<div class="col-2">
+									<input type="checkbox" id="History" name="genre">
+									<label for="History" class="ml-2"> History </label>
+								</div>
+								<div class="col-2">
+									<input type="checkbox" id="War" name="genre">
+									<label for="War" class="ml-2"> War </label>
+								</div>
+								<div class="col-2">
+									<input type="checkbox" id="Thriller" name="genre">
+									<label for="Thriller" class="ml-2"> Thriller </label>
+								</div>
+								<div class="col-2">
+									<input type="checkbox" id="Adventure" name="genre">
+									<label for="Adventure" class="ml-2"> Adventure </label>
+								</div>
+								<div class="col-2">
+									<input type="checkbox" id="Fantasy" name="genre">
+									<label for="Fantasy" class="ml-2"> Fantasy </label>
+								</div>
+								<div class="col-2">
+									<input type="checkbox" id="Animation" name="genre">
+									<label for="Animation" class="ml-2"> Animation </label>
+								</div>
+								<div class="col-2">
+									<input type="checkbox" id="Comedy" name="genre">
+									<label for="Comedy" class="ml-2"> Comedy </label>
+								</div>
+								<div class="col-2">
+									<input type="checkbox" id="Sci-Fi" name="genre">
+									<label for="Sci-Fi" class="ml-2"> Sci-Fi </label>
+								</div>
+								<div class="col-2">
+									<input type="checkbox" id="Msytery" name="genre">
+									<label for="Msytery" class="ml-2"> Mystery </label>
+								</div>
+							</div>
+						</div>
+						<div class="form-group my-3">
+							<h5>Awards</h5>
+							<div class="row form-group ml-3">
+								<label class="mt-2" for="mplikescount">
+									<h6>Award Count</h6>
+								</label>
+								<div class="form-group col-md-2">
+									<input type="text" class="form-control" id="inputZip" placeholder="min">
+								</div>
+								<div class="my-2 mx-1">–</div>
+								<div class="form-group col-md-2">
+									<input type="text" class="form-control" id="inputZip" placeholder="max">
+								</div>
+							</div>
+							<label class="ml-3" for="mplikescount">
+								<h6>Award Name</h6>
+							</label>
+							<div class="form-row align-items-center ml-3">
+								<div class="col-auto">
+									<input type="checkbox" id="Crime" name="genre">
+									<label for="Crime" class="ml-2"> Best Actor </label>
+								</div>
+								<div class="col-auto ml-4">
+									<input type="checkbox" id="Crime" name="genre">
+									<label for="Crime" class="ml-2"> Best Director </label>
+								</div>
+								<div class="col-auto ml-4">
+									<input type="checkbox" id="Crime" name="genre">
+									<label for="Crime" class="ml-2"> Best Producer </label>
+								</div>
+								<div class="col-auto ml-4">
+									<input type="checkbox" id="Crime" name="genre">
+									<label for="Crime" class="ml-2"> Best Actor By Popular Vote </label>
+								</div>
+							</div>
+						</div>
+						<div class="form-group my-3">
+							<h5>Production Company</h5>
+							<div class="form-row align-items-center">
+								<div class="col-3">
+									<input type="checkbox" id="Crime" name="genre">
+									<label for="Crime" class="ml-2"> BBC </label>
+								</div>
+								<div class="col-3">
+									<input type="checkbox" id="Crime" name="genre">
+									<label for="Crime" class="ml-2"> Bones </label>
+								</div>
+								<div class="col-3">
+									<input type="checkbox" id="Crime" name="genre">
+									<label for="Crime" class="ml-2"> Dreamworks </label>
+								</div>
+								<div class="col-3">
+									<input type="checkbox" id="Crime" name="genre">
+									<label for="Crime" class="ml-2"> Gracie </label>
+								</div>
+								<div class="col-3">
+									<input type="checkbox" id="Crime" name="genre">
+									<label for="Crime" class="ml-2"> Grammercy </label>
+								</div>
+								<div class="col-3">
+									<input type="checkbox" id="Crime" name="genre">
+									<label for="Crime" class="ml-2"> Gran Via </label>
+								</div>
+								<div class="col-3">
+									<input type="checkbox" id="Crime" name="genre">
+									<label for="Crime" class="ml-2"> Green Portal </label>
+								</div>
+								<div class="col-3">
+									<input type="checkbox" id="Crime" name="genre">
+									<label for="Crime" class="ml-2"> HBO </label>
+								</div>
+								<div class="col-3">
+									<input type="checkbox" id="Crime" name="genre">
+									<label for="Crime" class="ml-2"> High Bridge </label>
+								</div>
+								<div class="col-3">
+									<input type="checkbox" id="Crime" name="genre">
+									<label for="Crime" class="ml-2"> Marvel </label>
+								</div>
+								<div class="col-3">
+									<input type="checkbox" id="Crime" name="genre">
+									<label for="Crime" class="ml-2"> Netflix </label>
+								</div>
+								<div class="col-3">
+									<input type="checkbox" id="Crime" name="genre">
+									<label for="Crime" class="ml-2"> Summit </label>
+								</div>
+								<div class="col-3">
+									<input type="checkbox" id="Crime" name="genre">
+									<label for="Crime" class="ml-2"> Touchstone </label>
+								</div>
+								<div class="col-3">
+									<input type="checkbox" id="Crime" name="genre">
+									<label for="Crime" class="ml-2"> Two Brothers </label>
+								</div>
+								<div class="col-3">
+									<input type="checkbox" id="Crime" name="genre">
+									<label for="Crime" class="ml-2"> Universal </label>
+								</div>
+								<div class="col-3">
+									<input type="checkbox" id="Crime" name="genre">
+									<label for="Crime" class="ml-2"> Warner Bros </label>
+								</div>
+							</div>
+						</div>
+						<div class="form-group my-3">
+							<h5>Location</h5>
+							<div class="row form-group ml-3">
+								<label class="my-2" for="mplikescount">
+									<h6>Country</h6>
+								</label>
+								<div class="form-group mx-3">
+									<input type="text" class="form-control" id="inputZip">
+								</div>
+							</div>
+							<div class="row form-group ml-3">
+								<label class="my-2" for="mplikescount">
+									<h6>City</h6>
+								</label>
+								<div class="form-group mx-3">
+									<input type="text" class="form-control" id="inputZip">
+								</div>
+							</div>
+							<div class="row form-group ml-3">
+								<label class="my-2" for="mplikescount">
+									<h6>Zip</h6>
+								</label>
+								<div class="form-group mx-3">
+									<input type="text" class="form-control" id="inputZip">
+								</div>
+							</div>
+							<div class="row form-group ml-3">
 								<label for="exclusive"> Exclusive? </label>
-								<input type="checkbox" id="exclusive" name="location">
+								<div class="form-group mx-3">
+									<input type="checkbox" id="exclusive" name="location">
+								</div>
 							</div>
-							<!-- There was a cast or crew box i was supposed to add here too but i forgot what it was for -->
+						</div>
+						<div class="form-group my-3">
+							<h5>Box Office Collection (Movies Only)</h5>
+							<div class="row form-group">
+								<div class="form-group col-md-2">
+									<input type="text" class="form-control" id="inputZip" placeholder="min">
+								</div>
+								<div class="my-2 mx-1">–</div>
+								<div class="form-group col-md-2">
+									<input type="text" class="form-control" id="inputZip" placeholder="max">
+								</div>
+							</div>
+						</div>
+						<div class="form-group my-3">
+							<h5>Season Count (Series Only)</h5>
+							<div class="row form-group">
+								<div class="form-group col-md-2">
+									<input type="text" class="form-control" id="inputZip" placeholder="min">
+								</div>
+								<div class="my-2">–</div>
+								<div class="form-group col-md-2">
+									<input type="text" class="form-control" id="inputZip" placeholder="max">
+								</div>
+							</div>
+						</div>
 						</form>
 					</div>
 				</div>
@@ -203,56 +350,109 @@
 				</div>
 				<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
 					<div class="card-body">
-						<form id="allActorsForm" method="post" action="query.php" class="my-2">
-							<button class="btn btn-primary" type="submit" name="allActors" id="button-addon2">View All Actors</button>
-							<br>
-							<br>
-							<div class="col-md-3">
-								<label for="pname">
-									<h5>Person's Name</h5>
-								</label><br>
-								<input type="text" class="form-control" id="pname" name="pname">
-							</div>
-							<br>
-							<br>
-							<div class="col-md-2">
-								<label for="birthday">
-									<h5>Birthday</h5>
-								</label>
-								<!-- I think these should be on the same line and IDK why they aren't-->
-								<select class="form-control" name="birthdayequality" id="birthdayequality">
-									<option value='='>On</option>
-									<option value='>'>After</option>
-									<option value='<'>Before</option>
-									<input type="date" id="birthday" name="birthday">
-								</select>
-							</div>
-							<div class="col">
-								<label for="pawards">
-									<h5>Awards</h5>
-								</label><br>
-								<input type="text" class="form-control" id="pawards" name="pawards">
-							</div>
+						<div class="form-group my-3">
+							<h5>Name</h5>
+							<input type="text" class="form-control" id="mpname" name="mpname">
+						</div>
+						<div class="form-group my-3">
+							<h5>Birthday</h5>
 							<div class="row">
-								<div class="col">
-									<h5> Gender </h5>
-									<div class="col">
-										<!-- I think these should be on the same line and IDK why they aren't-->
-										<label for="pgenderf">Female</label>
-										<input type="radio" id="pgenderf" class="form-check form-check-inline" name="pgender">
-										<br>
-										<label for="pgenderm">Male</label>
-										<input type="radio" id="pgenderm" class="form-check form-check-inline" name="pgender">
-									</div>
+								<div class="mx-3">
+									<select class="form-control" name="birthdayequality" id="birthdayequality">
+										<option value='='>On</option>
+										<option value='>'>After</option>
+										<option value='<'>Before</option>
+									</select>
+								</div>
+								<input type="date" id="birthday" name="birthday">
+							</div>
+						</div>
+						<div class="form-group my-3">
+							<h5>Role</h5>
+							<div class="row form-group ml-3">
+								<label class="mt-2" for="mplikescount">
+									<h6>Role Count</h6>
+								</label>
+								<div class="form-group col-md-2">
+									<input type="text" class="form-control" id="inputZip" placeholder="min">
+								</div>
+								<div class="my-2 mx-1">–</div>
+								<div class="form-group col-md-2">
+									<input type="text" class="form-control" id="inputZip" placeholder="max">
 								</div>
 							</div>
-							<div class="col">
-								<label for="nationality">
-									<h5>Nationality</h5>
-								</label><br>
-								<input type="text" class="form-control" id="nationality" name="nationality">
+							<label class="ml-3" for="mplikescount">
+								<h6>Role Name</h6>
+							</label>
+							<div class="form-row align-items-center ml-3">
+								<div class="col-2">
+									<input type="checkbox" id="Crime" name="genre">
+									<label for="Crime" class="ml-2"> Actor </label>
+								</div>
+								<div class="col-2">
+									<input type="checkbox" id="Crime" name="genre">
+									<label for="Crime" class="ml-2"> Director </label>
+								</div>
+								<div class="col-2">
+									<input type="checkbox" id="Crime" name="genre">
+									<label for="Crime" class="ml-2"> Producer </label>
+								</div>
 							</div>
-						</form>
+						</div>
+						<div class="form-group my-3">
+							<h5>Awards</h5>
+							<div class="row form-group ml-3">
+								<label class="mt-2" for="mplikescount">
+									<h6>Award Count</h6>
+								</label>
+								<div class="form-group col-md-2">
+									<input type="text" class="form-control" id="inputZip" placeholder="min">
+								</div>
+								<div class="my-2 mx-1">–</div>
+								<div class="form-group col-md-2">
+									<input type="text" class="form-control" id="inputZip" placeholder="max">
+								</div>
+							</div>
+							<label class="ml-3" for="mplikescount">
+								<h6>Award Name</h6>
+							</label>
+							<div class="form-row align-items-center ml-3">
+								<div class="col-auto">
+									<input type="checkbox" id="Crime" name="genre">
+									<label for="Crime" class="ml-2"> Best Actor </label>
+								</div>
+								<div class="col-auto ml-4">
+									<input type="checkbox" id="Crime" name="genre">
+									<label for="Crime" class="ml-2"> Best Director </label>
+								</div>
+								<div class="col-auto ml-4">
+									<input type="checkbox" id="Crime" name="genre">
+									<label for="Crime" class="ml-2"> Best Producer </label>
+								</div>
+								<div class="col-auto ml-4">
+									<input type="checkbox" id="Crime" name="genre">
+									<label for="Crime" class="ml-2"> Best Actor By Popular Vote </label>
+								</div>
+							</div>
+						</div>
+						<div class="form-group my-3">
+							<h5>Gender</h5>
+							<div class="row">
+								<div class="mx-3">
+									<input type="radio" id="mpmovie" class="form-check form-check-inline" name="mptype">
+									<label for="mpmovie">Male</label>
+								</div>
+								<div class="mx-3">
+									<input type="radio" id="mpmovie" class="form-check form-check-inline" name="mptype">
+									<label for="mpmovie">Female</label>
+								</div>
+							</div>
+						</div>
+						<div class="form-group my-3">
+							<h5>Nationality</h5>
+							<input type="text" class="form-control" id="mpname" name="mpname">
+						</div>
+					</form>
 					</div>
 				</div>
 			</div>
@@ -273,58 +473,6 @@
 		</div>
 	</div>
 
-	<div class="justify-content-center mb-2">
-		<form name="customQueryForm" id="customQueryForm" class="justify-content-center" method="POST" action="query.php">
-			<div class="form-group row justify-content-md-center">
-				<div class="col-md-auto align-self-center">
-					<label for="table">View</label>
-				</div>
-				<div class="col-md-auto">
-					<select class="form-control" name="table-selector" id="table-selector">
-						<option value="motionpicture" selected="selected">Motion Pictures</option>
-						<option value="movie">Movies</option>
-						<option value="series">Series</option>
-						<option value="people">People</option>
-						<option value="role">Roles</option>
-						<option value="award">Awards</option>
-						<option value="location">Shooting Locations</option>
-						<option value="likes">Likes</option>
-					</select>
-				</div>
-			</div>
-			<div class="form-group row justify-content-md-center">
-				<div class="col col-lg-1 align-self-center">
-					<label for="attribute">Filter by</label>
-				</div>
-				<div class="col-md-auto">
-					<select class="form-control" name="attribute1" id="attribute1">
-						<option value="name">Name</option>
-						<option value="rating">Rating</option>
-						<option value="production">Production</option>
-						<option value="budget">Budget</option>
-						<option value="genre">Genre</option>
-						<option value="like_count">Likes</option>
-					</select>
-				</div>
-				<div class="col-md-auto">
-					<select class="form-control" name="equality1" id="equality1">
-						<option value='='>=</option>
-					</select>
-				</div>
-				<div class="col-md-auto">
-					<input class="form-control" type="text" class="m-2" name="parameter1" id="parameter1">
-				</div>
-				<div class="col col-lg-1">
-					<button type="submit" class="btn btn-primary" name="customQuery">Search</button>
-				</div>
-			</div>
-		</form>
-	</div>
-
-	<div class="d-flex justify-content-center mb-2">
-		<button type="button" class="btn btn-primary" id="addFilter">Add Additional Filter</button>
-	</div>
-
 </body>
 
 <script>
@@ -336,140 +484,6 @@
 	// return home
 	$("#goNext").click(function(e) {
 		window.location.href = "http://localhost/COSI127b/motion-picture-db/Project%201.3/selectFields.php";
-	});
-</script>
-
-<script>
-	// Show all tables
-	$("#showTables").click(function(e) {
-		$("#body").empty();
-		$("#body").append(
-			`<div class="d-flex justify-content-center">
-				<ul>
-					<li>MotionPicture (id, name, rating, production, budget)</li>
-					<li>User (email, name, age)</li>
-					<li>Likes (uemail, mpid)</li>
-					<li>Movie (mpid, boxoffice_collection)</li>
-					<li>Series (mpid, season_count)</li>
-					<li>People (id, name, nationality, dob, gender)</li>
-					<li>Role (mpid, pid, role_name)</li>
-					<li>Award (mpid, pid, award_name, award_year)</li>
-					<li>Genre (mpid, genre_name)</li>
-					<li>Location (mpid, zip, city, country)</li>
-				</ul>
-			</div>`);
-	});
-
-	// Show query form
-	$("#showQuery").click(function(e) {
-		$("#body").empty();
-		$("#body").append(
-			``
-		);
-	});
-
-
-	// Track table for custom query
-	$("#table").change(function() {
-		var customDB = $(this).val();
-		$(".attribute-selector").empty();
-
-		if (customDB === "motionpicture") {
-			$(".attribute-selector").append("<option value='name'>Name</option>");
-			$(".attribute-selector").append("<option value='rating'>Rating</option>");
-			$(".attribute-selector").append("<option value='production'>Production</option>");
-			$(".attribute-selector").append("<option value='budget'>Budget</option>");
-			$(".attribute-selector").append("<option value='genre_name'>Genre</option>");
-			$(".attribute-selector").append("<option value='like_count'>Likes</option>");
-		} else if (customDB === "movie") {
-			$(".attribute-selector").append("<option value='name'>Name</option>");
-			$(".attribute-selector").append("<option value='rating'>Rating</option>");
-			$(".attribute-selector").append("<option value='production'>Production</option>");
-			$(".attribute-selector").append("<option value='budget'>Budget</option>");
-			$(".attribute-selector").append("<option value='genre_name'>Genre</option>");
-			$(".attribute-selector").append("<option value='like_count'>Likes</option>");
-			$(".attribute-selector").append("<option value='boxoffice_collection'>Box Office Collection</option>");
-		} else if (customDB === "series") {
-			$(".attribute-selector").append("<option value='name'>Name</option>");
-			$(".attribute-selector").append("<option value='rating'>Rating</option>");
-			$(".attribute-selector").append("<option value='production'>Production</option>");
-			$(".attribute-selector").append("<option value='budget'>Budget</option>");
-			$(".attribute-selector").append("<option value='genre_name'>Genre</option>");
-			$(".attribute-selector").append("<option value='like_count'>Likes</option>");
-			$(".attribute-selector").append("<option value='season_count'>Season Count</option>");
-		} else if (customDB === "people") {
-			$(".attribute-selector").append("<option value='name'>Name</option>");
-			$(".attribute-selector").append("<option value='nationality'>Nationality</option>");
-			$(".attribute-selector").append("<option value='dob'>Birthday</option>");
-			$(".attribute-selector").append("<option value='gender'>Gender</option>");
-			$(".attribute-selector").append("<option value='role_name'>Role</option>");
-		} else if (customDB === "role") {
-			$(".attribute-selector").append("<option value='mp_name'>Motion Picture</option>");
-			$(".attribute-selector").append("<option value='p_name'>Person</option>");
-			$(".attribute-selector").append("<option value='role_name'>Role</option>");
-		} else if (customDB === "award") {
-			$(".attribute-selector").append("<option value='award_name'>Award Name</option>");
-			$(".attribute-selector").append("<option value='award_year'>Award Year</option>");
-			$(".attribute-selector").append("<option value='mp_name'>Motion Picture</option>");
-			$(".attribute-selector").append("<option value='p_name'>Person</option>");
-		} else if (customDB === "location") {
-			$(".attribute-selector").append("<option value='city'>City</option>");
-			$(".attribute-selector").append("<option value='country'>Country</option>");
-			$(".attribute-selector").append("<option value='zip'>Zip</option>");
-			$(".attribute-selector").append("<option value='mp_name'>Motion Picture</option>");
-		} else if (customDB === "likes") {
-			$(".attribute-selector").append("<option value='uemail'>User Email</option>");
-			$(".attribute-selector").append("<option value='mp_name'>Motion Picture</option>");
-		}
-		$(".equality-selector").empty();
-		$(".equality-selector").append("<option value='='>=</option>");
-	});
-
-	// Track attribute for custom query
-	$(".attribute-selector").change(function() {
-		var customAttribute = $(this).val();
-		$(".equality-selector").empty();
-
-		// Numeric attributes
-		if (["rating", "budget", "like_count", "age", "boxoffice_collection", "season_count", "dob", "award_year", "num likes"].includes(customAttribute)) {
-			$(".equality-selector").append("<option value='<'><</option>");
-			$(".equality-selector").append("<option value='<='><=</option>")
-			$(".equality-selector").append("<option value='='>=</option>")
-			$(".equality-selector").append("<option value='>'>></option>")
-			$(".equality-selector").append("<option value='>='>>=</option>")
-
-			// Non-numeric attributes
-		} else {
-			$(".equality-selector").append("<option value='='>=</option>");
-		}
-	});
-
-	// Add additional filters
-	$("#addFilter").click(function(e) {
-		$("#customQueryForm").append(
-			`<div class="form-group row justify-content-md-center">
-				<div class="col col-lg-1"></div>
-				<div class="col-md-auto">
-					<select class="form-control attribute-selector" name="attribute">
-						<option value="name">Name</option>
-						<option value="rating">Rating</option>
-						<option value="production">Production</option>
-						<option value="budget">Budget</option>
-						<option value="genre">Genre</option>
-						<option value="like_count">Likes</option>
-					</select>
-				</div>
-				<div class="col-md-auto">
-					<select class="form-control equality-selector" name="equality">
-						<option value='='>=</option>	
-					</select>
-				</div>
-				<div class="col-md-auto">
-					<input class="form-control" type="text" class="m-2" name="parameter" id="parameter">
-				</div>
-				<div class="col col-lg-1"></div>
-			</div>`
-		)
 	});
 </script>
 

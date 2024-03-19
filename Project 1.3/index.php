@@ -38,7 +38,7 @@
 <script>
 	// go to Query page
 	$("#goQuery").click(function(e) {
-		window.location.href = "http://localhost/COSI127b/motion-picture-db/Project%201.3/selectFilters.php";
+		window.location.href = "http://localhost/COSI127b/motion-picture-db/Project%201.3/queryHome.php";
 	});
 	
 	// go to Like page
