@@ -35,7 +35,7 @@
 			</button>
 		</div>
 	</div>
-	
+
 
 	<!-- Acordian selection menu -->
 	<div class="d-flex justify-content-center">
@@ -53,6 +53,142 @@
 					<div class="card-body">
 						<form id="allMoviesForm" method="post" action="query.php" class="my-2">
 							<button class="btn btn-primary" type="submit" name="allMovies" id="button-addon2">View All Movies</button>
+							<br>
+							<br>
+							<div class="row">
+								<div class="col">
+									<label for="mpname">
+										<h5>Motion Picture Name</h5>
+									</label><br>
+									<input type="text" class="form-control" id="mpname" name="mpname">
+								</div>
+							</div>
+							<br>
+							<br>
+							<div class="row">
+								<h5> Motion Picture Type</h5>
+								<div class="col">
+									<!-- I think these should be on the same line and IDK why they aren't-->
+									<label for="mpmovie">Movie</label>
+									<input type="checkbox" id="mpmovie" class="form-check form-check-inline" name="mptype">
+									<br>
+									<label for="mpseries">Series</label>
+									<input type="checkbox" id="mpseries" class="form-check form-check-inline" name="mptype">
+								</div>
+							</div>
+							<br>
+							<br>
+							<div class="row">
+								<div class="col">
+									<label for="mprating">
+										<h5>Rating</h5>
+									</label><br>
+									<!-- I stole this code from down below n i don't understand what you did entirely. can you change the menu cntents to have all the selection options and also try and get them on the same line? thank you :) -->
+									<div class="col-md-2">
+										<select class="form-control" name="equality1" id="equality1">
+											<option value='='>=</option>
+											<option value='>'>></option>
+											<option value='<'>&lt;</option>
+											<input type="text" id="mprating" name="mprating" style="display: inline-block">
+										</select>
+									</div>
+								</div>
+							</div>
+							<br>
+							<br>
+							<h5>Likes</h5><br>
+							<label for="mplikescount">
+								<h6>With Like Count</h6>
+							</label><br>
+							<div class="col-md-2">
+								<select class="form-control" name="equality1" id="equality1">
+									<option value='='>=</option>
+									<option value='>'>></option>
+									<option value='<'>&lt;</option>
+									<input type="text" id="mplikescount" name="mplikescount">
+								</select>
+							</div>
+							<br>
+							<br>
+							<div class="col-md-2">
+								<label for="mpuser">
+									<h6>By User</h6>
+								</label><br>
+								<input type="text" id="mpuser" name="mpuser">
+							</div>
+							<br>
+							<label for="mpage">
+								<h6>By Age Range</h6>
+							</label><br>
+							<div class="col-md-2">
+								<select class="form-control" name="equality1" id="equality1">
+									<option value='='>=</option>
+									<option value='>'>></option>
+									<option value='<'>&lt;</option>
+									<input type="text" id="mpage" name="mpage">
+								</select>
+							</div>
+							<br>
+							<br>
+							<label for="genre">
+								<h5>Genre</h5>
+							</label>
+							<div class="col-md-2">
+								<label for="Crime"> Crime </label>
+								<input type="checkbox" id="Crime" name="genre">
+								<label for="Drama"> Drama </label>
+								<input type="checkbox" id="Drama" name="genre">
+								<label for="Action"> Action </label>
+								<input type="checkbox" id="Action" name="genre">
+								<label for="History"> History </label>
+								<input type="checkbox" id="History" name="genre">
+								<label for="War"> War </label>
+								<input type="checkbox" id="War" name="genre">
+								<label for="Thriller"> Thriller </label>
+								<input type="checkbox" id="Thriller" name="genre">
+								<label for="Adventure"> Adventure </label>
+								<input type="checkbox" id="Adventure" name="genre">
+								<label for="Fantasy"> Fantasy </label>
+								<input type="checkbox" id="Fantasy" name="genre">
+								<label for="Animation"> Animation </label>
+								<input type="checkbox" id="Animation" name="genre">
+								<label for="Comedy"> Comedy </label>
+								<input type="checkbox" id="Comedy" name="genre">
+								<label for="Sci-Fi"> Sci-Fi </label>
+								<input type="checkbox" id="Sci-Fi" name="genre">
+								<label for="Msytery"> Mystery </label>
+								<input type="checkbox" id="Msytery" name="genre">
+							</div>
+							<br>
+							<br>
+							<div class="col">
+								<label for="mpawards">
+									<h5>Awards</h5>
+								</label><br>
+								<input type="text" class="form-control" id="mpawards" name="mpawards">
+							</div>
+							<br>
+							<br>
+							<div class="col">
+								<label for="production">
+									<h5>Production Company</h5>
+								</label><br>
+								<input type="text" class="form-control" id="production" name="production">
+							</div>
+							<br>
+							<br>
+							<div class="col">
+								<h5>Location</h5> <br>
+								<label for="country"> Country </label>
+								<input type="text" class="form-control form-inline" id="country" name="location">
+								<label for="city"> City </label>
+								<input type="text" class="form-control form-inline" id="city" name="location">
+								<label for="zip"> Zip </label>
+								<input type="text" class="form-control form-inline" id="zip" name="location">
+								<label for="exclusive"> Exclusive? </label>
+								<input type="checkbox" id="exclusive" name="location">
+							</div>
+							<!-- There was a cast or crew box i was supposed to add here too but i forgot what it was for -->
 						</form>
 					</div>
 				</div>
@@ -69,12 +205,59 @@
 					<div class="card-body">
 						<form id="allActorsForm" method="post" action="query.php" class="my-2">
 							<button class="btn btn-primary" type="submit" name="allActors" id="button-addon2">View All Actors</button>
+							<br>
+							<br>
+							<div class="col-md-3">
+								<label for="pname">
+									<h5>Person's Name</h5>
+								</label><br>
+								<input type="text" class="form-control" id="pname" name="pname">
+							</div>
+							<br>
+							<br>
+							<div class="col-md-2">
+								<label for="birthday">
+									<h5>Birthday</h5>
+								</label>
+								<!-- I think these should be on the same line and IDK why they aren't-->
+								<select class="form-control" name="birthdayequality" id="birthdayequality">
+									<option value='='>On</option>
+									<option value='>'>After</option>
+									<option value='<'>Before</option>
+									<input type="date" id="birthday" name="birthday">
+								</select>
+							</div>
+							<div class="col">
+								<label for="pawards">
+									<h5>Awards</h5>
+								</label><br>
+								<input type="text" class="form-control" id="pawards" name="pawards">
+							</div>
+							<div class="row">
+								<div class="col">
+									<h5> Gender </h5>
+									<div class="col">
+										<!-- I think these should be on the same line and IDK why they aren't-->
+										<label for="pgenderf">Female</label>
+										<input type="radio" id="pgenderf" class="form-check form-check-inline" name="pgender">
+										<br>
+										<label for="pgenderm">Male</label>
+										<input type="radio" id="pgenderm" class="form-check form-check-inline" name="pgender">
+									</div>
+								</div>
+							</div>
+							<div class="col">
+								<label for="nationality">
+									<h5>Nationality</h5>
+								</label><br>
+								<input type="text" class="form-control" id="nationality" name="nationality">
+							</div>
 						</form>
 					</div>
 				</div>
 			</div>
 			<div class="card" style="width: 800px">
-				<div class="card-header" id="headingThree" >
+				<div class="card-header" id="headingThree">
 					<h5 class="mb-0">
 						<button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
 							Collaboration
