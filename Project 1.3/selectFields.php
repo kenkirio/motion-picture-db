@@ -53,7 +53,7 @@
 				<div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
 					<div class="card-body">
 						<div class="form-group">
-							<input type="checkbox" id="Title" name="mp-title">
+							<input type="checkbox" id="Title" name="mp-name">
 							<label for="Title" class="ml-2"> Title </label>
 						</div>
 						<div class="form-group">
@@ -77,7 +77,7 @@
 							<label for="Genre" class="ml-2"> Genre </label>
 						</div>
 						<div class="form-group">
-							<input type="checkbox" id="RoleCount" name="mp-role-count">
+							<input type="checkbox" id="RoleCount" name="role-mp-count">
 							<label for="RoleCOunt" class="ml-2"> Role Count </label>
 						</div>
 						<div class="form-group">
@@ -127,19 +127,19 @@
 				<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
 					<div class="card-body">
 						<div class="form-group">
-							<input type="checkbox" id="Name" name="p-name">
+							<input type="checkbox" id="Name" name="people-name">
 							<label for="Name" class="ml-2"> Name </label>
 						</div>
 						<div class="form-group">
-							<input type="checkbox" id="DOB" name="p-birthday">
+							<input type="checkbox" id="DOB" name="people-dob">
 							<label for="DOB" class="ml-2"> Birthday </label>
 						</div>
 						<div class="form-group">
-							<input type="checkbox" id="PRoleCount" name="p-role-count">
+							<input type="checkbox" id="PRoleCount" name="role-p-count">
 							<label for="PRoleCount" class="ml-2"> Role Count </label>
 						</div>
 						<div class="form-group">
-							<input type="checkbox" id="RoleName" name="p-role_name">
+							<input type="checkbox" id="RoleName" name="role-role_name">
 							<label for="RoleName" class="ml-2"> Role Name </label>
 						</div>
 						<div class="form-group">
@@ -151,11 +151,11 @@
 							<label for="Crime" class="ml-2"> Award Name </label>
 						</div>
 						<div class="form-group">
-							<input type="checkbox" id="Gender" name="p-gender">
+							<input type="checkbox" id="Gender" name="people-gender">
 							<label for="Crime" class="ml-2"> Gender </label>
 						</div>
 						<div class="form-group">
-							<input type="checkbox" id="Nationality" name="p-nationality">
+							<input type="checkbox" id="Nationality" name="people-nationality">
 							<label for="Crime" class="ml-2"> Nationality </label>
 						</div>
 					</form>
@@ -197,7 +197,7 @@
 									<label for="topAwardCount">Motion Picture Award Count</label>
 								</div>
 								<div class="mx-3">
-									<input type="radio" id="topPAwardCount" class="form-check form-check-inline" name="top" value="award-p-count>
+									<input type="radio" id="topPAwardCount" class="form-check form-check-inline" name="top" value="award-p-count">
 									<label for="topPAwardCount">Person Award Count</label>
 								</div>
 								<div class="mx-3">
@@ -228,7 +228,7 @@
 <?php
 
 
-$filterVars = array("mp-title", "type", "mp-rating-min", "mp-rating-max", "likes-count-min", "likes-count-max", "likes-uemail", "likes-age-min", "likes-age-max", "genre", "award-mp-count-min", "award-mp-count-max", "award-mp-name", "mp-production", "location-country", "location-city", "location-zip", "location-exclusive", "movie-collection-min", "movie-collection-max", "series-season-min", "series-season-max", "people-name", "people-dob-value", "people-dob-equality", "role-count-min", "role-count-max", "role-name", "award-p-count-min", "award-p-count-max", "award-p-name", "people-gender", "people-nationality");
+$filterVars = array("mp-title", "type", "mp-rating-min", "mp-rating-max", "likes-count-min", "likes-count-max", "likes-uemail", "likes-age-min", "likes-age-max", "genre", "award-mp-count-min", "award-mp-count-max", "award-mp-name", "mp-production", "location-country", "location-city", "location-zip", "location-exclusive", "movie-collection-min", "movie-collection-max", "series-season-min", "series-season-max", "people-name", "people-dob-value", "people-dob-equality" "role-count-min", "role-count-max", "role-name", "award-p-count-min", "award-p-count-max", "award-p-name", "people-gender", "people-nationality");
 
 
 $filterVars = array("title", "type");

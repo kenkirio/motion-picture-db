@@ -56,7 +56,7 @@
 					<div class="card-body">
 						<div class="form-group my-3">
 							<h5>Title</h5>
-							<input type="text" name="mp-title" class="form-control">
+							<input type="text" name="mp-name" class="form-control">
 						</div>
 						<div class="form-group my-3">
 							<h5>Type</h5>

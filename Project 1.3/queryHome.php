@@ -73,9 +73,9 @@
 			</form>
 		</div>
     	<div class="col-auto">
-			<form name="marvelWarnerActorsForm" method="post" action="query.php">
+			<form name="mpComedyHigherForm" method="post" action="query.php">
 				<div class="input-group mb-3">
-					<button name="marvelWarnerActors" class="btn btn-outline-primary" type="submit" style="word-wrap: break-word;">Motion Pictures Rated Higher Than Average Comedy</button>
+					<button name="mpComedyHigher" class="btn btn-outline-primary" type="submit" style="word-wrap: break-word;">Motion Pictures Rated Higher Than Average Comedy</button>
 				</div>
 			</form>
 		</div>
