@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -224,6 +225,29 @@
 
 </body>
 
+<?php
+
+/*
+$filterVars = array("mp-title", "type", "mp-rating-min", "mp-rating-max", "likes-count-min", "likes-count-max", "likes-uemail", "likes-age-min", "likes-age-max", "genre", "award-mp-count-min", "award-mp-count-max", "award-mp-name", "mp-production", "location-country", "location-city", "location-zip", "location-exclusive", "movie-collection-min", "movie-collection-max", "series-season-min", "series-season-max", "people-name", "people-birthday", "role-count-min", "role-count-max", "role-name", "award-p-count-min", "award-p-count-max", "award-p-name", "people-gender", "people-nationality");
+*/
+
+$filterVars = array("title", "type");
+
+foreach ($filterVars as $varName) {
+	if (filter_has_var(INPUT_POST, $varName)) {
+		if (((substr($varName, -3, 3) == "min") || (substr($varName, -3, 3) == "max"))  && is_numeric($_POST[$varName])) {
+			$_SESSION["filter-" . $varName] = $_POST[$varName];
+		} else if (!empty($_POST[$varName])) {
+			$_SESSION["filter-" . $varName] = $_POST[$varName];
+		} else {
+			echo $varName . " was empty \n";
+		}
+	} else {
+		echo $varName . " not set \n";
+	}
+}
+?>
+
 <script>
 	// return home
 	$("#goHome").click(function(e) {
@@ -233,140 +257,6 @@
 	// return home
 	$("#goNext").click(function(e) {
 		window.location.href = "http://localhost/COSI127b/motion-picture-db/Project%201.3/query.php";
-	});
-</script>
-
-<script>
-	// Show all tables
-	$("#showTables").click(function(e) {
-		$("#body").empty();
-		$("#body").append(
-			`<div class="d-flex justify-content-center">
-				<ul>
-					<li>MotionPicture (id, name, rating, production, budget)</li>
-					<li>User (email, name, age)</li>
-					<li>Likes (uemail, mpid)</li>
-					<li>Movie (mpid, boxoffice_collection)</li>
-					<li>Series (mpid, season_count)</li>
-					<li>People (id, name, nationality, dob, gender)</li>
-					<li>Role (mpid, pid, role_name)</li>
-					<li>Award (mpid, pid, award_name, award_year)</li>
-					<li>Genre (mpid, genre_name)</li>
-					<li>Location (mpid, zip, city, country)</li>
-				</ul>
-			</div>`);
-	});
-
-	// Show query form
-	$("#showQuery").click(function(e) {
-		$("#body").empty();
-		$("#body").append(
-			``
-		);
-	});
-
-
-	// Track table for custom query
-	$("#table").change(function() {
-		var customDB = $(this).val();
-		$(".attribute-selector").empty();
-
-		if (customDB === "motionpicture") {
-			$(".attribute-selector").append("<option value='name'>Name</option>");
-			$(".attribute-selector").append("<option value='rating'>Rating</option>");
-			$(".attribute-selector").append("<option value='production'>Production</option>");
-			$(".attribute-selector").append("<option value='budget'>Budget</option>");
-			$(".attribute-selector").append("<option value='genre_name'>Genre</option>");
-			$(".attribute-selector").append("<option value='like_count'>Likes</option>");
-		} else if (customDB === "movie") {
-			$(".attribute-selector").append("<option value='name'>Name</option>");
-			$(".attribute-selector").append("<option value='rating'>Rating</option>");
-			$(".attribute-selector").append("<option value='production'>Production</option>");
-			$(".attribute-selector").append("<option value='budget'>Budget</option>");
-			$(".attribute-selector").append("<option value='genre_name'>Genre</option>");
-			$(".attribute-selector").append("<option value='like_count'>Likes</option>");
-			$(".attribute-selector").append("<option value='boxoffice_collection'>Box Office Collection</option>");
-		} else if (customDB === "series") {
-			$(".attribute-selector").append("<option value='name'>Name</option>");
-			$(".attribute-selector").append("<option value='rating'>Rating</option>");
-			$(".attribute-selector").append("<option value='production'>Production</option>");
-			$(".attribute-selector").append("<option value='budget'>Budget</option>");
-			$(".attribute-selector").append("<option value='genre_name'>Genre</option>");
-			$(".attribute-selector").append("<option value='like_count'>Likes</option>");
-			$(".attribute-selector").append("<option value='season_count'>Season Count</option>");
-		} else if (customDB === "people") {
-			$(".attribute-selector").append("<option value='name'>Name</option>");
-			$(".attribute-selector").append("<option value='nationality'>Nationality</option>");
-			$(".attribute-selector").append("<option value='dob'>Birthday</option>");
-			$(".attribute-selector").append("<option value='gender'>Gender</option>");
-			$(".attribute-selector").append("<option value='role_name'>Role</option>");
-		} else if (customDB === "role") {
-			$(".attribute-selector").append("<option value='mp_name'>Motion Picture</option>");
-			$(".attribute-selector").append("<option value='p_name'>Person</option>");
-			$(".attribute-selector").append("<option value='role_name'>Role</option>");
-		} else if (customDB === "award") {
-			$(".attribute-selector").append("<option value='award_name'>Award Name</option>");
-			$(".attribute-selector").append("<option value='award_year'>Award Year</option>");
-			$(".attribute-selector").append("<option value='mp_name'>Motion Picture</option>");
-			$(".attribute-selector").append("<option value='p_name'>Person</option>");
-		} else if (customDB === "location") {
-			$(".attribute-selector").append("<option value='city'>City</option>");
-			$(".attribute-selector").append("<option value='country'>Country</option>");
-			$(".attribute-selector").append("<option value='zip'>Zip</option>");
-			$(".attribute-selector").append("<option value='mp_name'>Motion Picture</option>");
-		} else if (customDB === "likes") {
-			$(".attribute-selector").append("<option value='uemail'>User Email</option>");
-			$(".attribute-selector").append("<option value='mp_name'>Motion Picture</option>");
-		}
-		$(".equality-selector").empty();
-		$(".equality-selector").append("<option value='='>=</option>");
-	});
-
-	// Track attribute for custom query
-	$(".attribute-selector").change(function() {
-		var customAttribute = $(this).val();
-		$(".equality-selector").empty();
-
-		// Numeric attributes
-		if (["rating", "budget", "like_count", "age", "boxoffice_collection", "season_count", "dob", "award_year", "num likes"].includes(customAttribute)) {
-			$(".equality-selector").append("<option value='<'><</option>");
-			$(".equality-selector").append("<option value='<='><=</option>")
-			$(".equality-selector").append("<option value='='>=</option>")
-			$(".equality-selector").append("<option value='>'>></option>")
-			$(".equality-selector").append("<option value='>='>>=</option>")
-
-			// Non-numeric attributes
-		} else {
-			$(".equality-selector").append("<option value='='>=</option>");
-		}
-	});
-
-	// Add additional filters
-	$("#addFilter").click(function(e) {
-		$("#customQueryForm").append(
-			`<div class="form-group row justify-content-md-center">
-				<div class="col col-lg-1"></div>
-				<div class="col-md-auto">
-					<select class="form-control attribute-selector" name="attribute">
-						<option value="name">Name</option>
-						<option value="rating">Rating</option>
-						<option value="production">Production</option>
-						<option value="budget">Budget</option>
-						<option value="genre">Genre</option>
-						<option value="like_count">Likes</option>
-					</select>
-				</div>
-				<div class="col-md-auto">
-					<select class="form-control equality-selector" name="equality">
-						<option value='='>=</option>	
-					</select>
-				</div>
-				<div class="col-md-auto">
-					<input class="form-control" type="text" class="m-2" name="parameter" id="parameter">
-				</div>
-				<div class="col col-lg-1"></div>
-			</div>`
-		)
 	});
 </script>
 
