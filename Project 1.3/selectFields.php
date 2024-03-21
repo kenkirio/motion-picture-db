@@ -52,63 +52,63 @@
 				<div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
 					<div class="card-body">
 						<div class="form-group">
-							<input type="checkbox" id="Crime" name="genre">
+							<input type="checkbox" id="Title" name="title">
 							<label for="Crime" class="ml-2"> Title </label>
 						</div>
 						<div class="form-group">
-							<input type="checkbox" id="Crime" name="genre">
+							<input type="checkbox" id="Rating" name="rating">
 							<label for="Crime" class="ml-2"> Rating </label>
 						</div>
 						<div class="form-group">
-							<input type="checkbox" id="Crime" name="genre">
+							<input type="checkbox" id="LikeCount" name="likeCount">
 							<label for="Crime" class="ml-2"> Like Count </label>
 						</div>
 						<div class="form-group">
-							<input type="checkbox" id="Crime" name="genre">
+							<input type="checkbox" id="LikeUserEmail" name="likeUserEmail">
 							<label for="Crime" class="ml-2"> Like User Email </label>
 						</div>
 						<div class="form-group">
-							<input type="checkbox" id="Crime" name="genre">
+							<input type="checkbox" id="LikeUserAge" name="likeUserAge">
 							<label for="Crime" class="ml-2"> Like User Age </label>
 						</div>
 						<div class="form-group">
-							<input type="checkbox" id="Crime" name="genre">
+							<input type="checkbox" id="Genre" name="genre">
 							<label for="Crime" class="ml-2"> Genre </label>
 						</div>
 						<div class="form-group">
-							<input type="checkbox" id="Crime" name="genre">
+							<input type="checkbox" id="RoleCoune" name="mpRroleCount">
 							<label for="Crime" class="ml-2"> Role Count </label>
 						</div>
 						<div class="form-group">
-							<input type="checkbox" id="Crime" name="genre">
+							<input type="checkbox" id="AwardCount" name="mpAwardCount">
 							<label for="Crime" class="ml-2"> Award Count </label>
 						</div>
 						<div class="form-group">
-							<input type="checkbox" id="Crime" name="genre">
+							<input type="checkbox" id="AwardName" name="mpAwardName">
 							<label for="Crime" class="ml-2"> Award Name </label>
 						</div>
 						<div class="form-group">
-							<input type="checkbox" id="Crime" name="genre">
+							<input type="checkbox" id="ProductionCompany" name="productionCompany">
 							<label for="Crime" class="ml-2"> Production Company </label>
 						</div>
 						<div class="form-group">
-							<input type="checkbox" id="Crime" name="genre">
+							<input type="checkbox" id="Country" name="shootingCcountry">
 							<label for="Crime" class="ml-2"> Country </label>
 						</div>
 						<div class="form-group">
-							<input type="checkbox" id="Crime" name="genre">
+							<input type="checkbox" id="City" name="shootingCity">
 							<label for="Crime" class="ml-2"> City </label>
 						</div>
 						<div class="form-group">
-							<input type="checkbox" id="Crime" name="genre">
+							<input type="checkbox" id="Zip" name="shootingZip">
 							<label for="Crime" class="ml-2"> Zip </label>
 						</div>
 						<div class="form-group">
-							<input type="checkbox" id="Crime" name="genre">
+							<input type="checkbox" id="Collection" name="collection">
 							<label for="Crime" class="ml-2"> Box Office Collection (Movies Only) </label>
 						</div>
 						<div class="form-group">
-							<input type="checkbox" id="Crime" name="genre">
+							<input type="checkbox" id="SeasonCount" name="seasonCount">
 							<label for="Crime" class="ml-2"> Season Count (Series Only) </label>
 						</div>
 						</form>
@@ -126,35 +126,35 @@
 				<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
 					<div class="card-body">
 						<div class="form-group">
-							<input type="checkbox" id="Crime" name="genre">
+							<input type="checkbox" id="Name" name="name">
 							<label for="Crime" class="ml-2"> Name </label>
 						</div>
 						<div class="form-group">
-							<input type="checkbox" id="Crime" name="genre">
+							<input type="checkbox" id="DOB" name="DOB">
 							<label for="Crime" class="ml-2"> Birthday </label>
 						</div>
 						<div class="form-group">
-							<input type="checkbox" id="Crime" name="genre">
+							<input type="checkbox" id="PRoleCount" name="pRoleCount">
 							<label for="Crime" class="ml-2"> Role Count </label>
 						</div>
 						<div class="form-group">
-							<input type="checkbox" id="Crime" name="genre">
+							<input type="checkbox" id="RoleName" name="roleName">
 							<label for="Crime" class="ml-2"> Role Name </label>
 						</div>
 						<div class="form-group">
-							<input type="checkbox" id="Crime" name="genre">
+							<input type="checkbox" id="PAwardCount" name="pAwardCount">
 							<label for="Crime" class="ml-2"> Award Count </label>
 						</div>
 						<div class="form-group">
-							<input type="checkbox" id="Crime" name="genre">
+							<input type="checkbox" id="PAwardName" name="pAwardName">
 							<label for="Crime" class="ml-2"> Award Name </label>
 						</div>
 						<div class="form-group">
-							<input type="checkbox" id="Crime" name="genre">
+							<input type="checkbox" id="Gender" name="gender">
 							<label for="Crime" class="ml-2"> Gender </label>
 						</div>
 						<div class="form-group">
-							<input type="checkbox" id="Crime" name="genre">
+							<input type="checkbox" id="Nationality" name="nationality">
 							<label for="Crime" class="ml-2"> Nationality </label>
 						</div>
 					</form>
@@ -180,39 +180,39 @@
 							<h5>Order By</h5>
 							<div class="row">
 								<div class="mx-3">
-									<input type="radio" id="mpmovie" class="form-check form-check-inline" name="mptype">
+									<input type="radio" id="topRating" class="form-check form-check-inline" name="topRating">
 									<label for="mpmovie">Rating</label>
 								</div>
 								<div class="mx-3">
-									<input type="radio" id="mpmovie" class="form-check form-check-inline" name="mptype">
+									<input type="radio" id="topLikeCount" class="form-check form-check-inline" name="topLikeCount">
 									<label for="mpmovie">Like Count</label>
 								</div>
 								<div class="mx-3">
-									<input type="radio" id="mpmovie" class="form-check form-check-inline" name="mptype">
+									<input type="radio" id="topLikeUserAge" class="form-check form-check-inline" name="topLikeUserAge">
 									<label for="mpmovie">Like User Age</label>
 								</div>
 								<div class="mx-3">
-									<input type="radio" id="mpmovie" class="form-check form-check-inline" name="mptype">
+									<input type="radio" id="topAwardCount" class="form-check form-check-inline" name="topAwardCount">
 									<label for="mpmovie">Motion Picture Award Count</label>
 								</div>
 								<div class="mx-3">
-									<input type="radio" id="mpmovie" class="form-check form-check-inline" name="mptype">
+									<input type="radio" id="topPAwardCount" class="form-check form-check-inline" name="topPAwardCount">
 									<label for="mpmovie">Person Award Count</label>
 								</div>
 								<div class="mx-3">
-									<input type="radio" id="mpmovie" class="form-check form-check-inline" name="mptype">
+									<input type="radio" id="topCollection" class="form-check form-check-inline" name="topCollection">
 									<label for="mpmovie">Box Office Collection (Movie Only)</label>
 								</div>
 								<div class="mx-3">
-									<input type="radio" id="mpmovie" class="form-check form-check-inline" name="mptype">
+									<input type="radio" id="topSeasonCount" class="form-check form-check-inline" name="topSeasonCount">
 									<label for="mpmovie">Season Count (Series Only)</label>
 								</div>
 								<div class="mx-3">
-									<input type="radio" id="mpmovie" class="form-check form-check-inline" name="mptype">
+									<input type="radio" id="topRoleCount" class="form-check form-check-inline" name="topRoleCount">
 									<label for="mpmovie">Motion Picture Role Count</label>
 								</div>
 								<div class="mx-3">
-									<input type="radio" id="mpmovie" class="form-check form-check-inline" name="mptype">
+									<input type="radio" id="topPRoleCount" class="form-check form-check-inline" name="topPRoleCount">
 									<label for="mpmovie">Person Role Count</label>
 								</div>
 							</div>

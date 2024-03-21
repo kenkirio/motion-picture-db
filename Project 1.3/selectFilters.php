@@ -53,71 +53,71 @@
 					<div class="card-body">
 						<div class="form-group my-3">
 							<h5>Title</h5>
-							<input type="text" class="form-control" id="mpname" name="mpname">
+							<input type="text" class="form-control" id="mpname" name="mpName">
 						</div>
 						<div class="form-group my-3">
 							<h5>Type</h5>
 							<div class="row">
 								<div class="mx-3">
-									<input type="radio" id="mpmovie" class="form-check form-check-inline" name="mptype">
-									<label for="mpmovie">All</label>
+									<input type="radio" id="mpall" class="form-check form-check-inline" name="mpType">
+									<label for="mpall">All</label>
 								</div>
 								<div class="mx-3">
-									<input type="radio" id="mpmovie" class="form-check form-check-inline" name="mptype">
+									<input type="radio" id="mpmovie" class="form-check form-check-inline" name="mpType">
 									<label for="mpmovie">Movie</label>
 								</div>
 								<div class="mx-3">
-									<input type="radio" id="mpseries" class="form-check form-check-inline" name="mptype">
+									<input type="radio" id="mpseries" class="form-check form-check-inline" name="mpType">
 									<label for="mpseries">Series</label>
 								</div>
 							</div>
 						</div>
 						<div class="form-group my-3">
-							<label for="mprating">
+							<label for="ratingmin">
 								<h5>Rating</h5>
 							</label>
 							<div class="row">
 								<div class="form-group col-md-2">
-									<input type="text" class="form-control" id="inputZip" placeholder="min">
+									<input type="text" class="form-control" id="ratingMin" placeholder="min" name="ratingMin">
 								</div>
 								<div class="my-2 mx-1">–</div>
 								<div class="form-group col-md-2">
-									<input type="text" class="form-control" id="inputZip" placeholder="max">
+									<input type="text" class="form-control" id="ratingMax" placeholder="max" name="ratingMax">
 								</div>
 							</div>							
 						</div>
 						<div class="form-group my-3">
 							<h5>Likes</h5>
 							<div class="row form-group ml-3">
-								<label class="my-2" for="mplikescount">
+								<label class="my-2" for="likeCoutMin">
 									<h6>Like Count</h6>
 								</label>
 								<div class="form-group col-md-2">
-									<input type="text" class="form-control" id="inputZip" placeholder="min">
+									<input type="text" class="form-control" id="likeCountMin" placeholder="min" name="likeCountMin">
 								</div>
 								<div class="my-2 mx-1">–</div>
 								<div class="form-group col-md-2">
-									<input type="text" class="form-control" id="inputZip" placeholder="max">
+									<input type="text" class="form-control" id="likeCountMax" placeholder="max" name="likeCountMax">
 								</div>
 							</div>
 							<div class="row form-group ml-3">
-								<label class="my-2" for="mplikescount">
+								<label class="my-2" for="userEmail">
 									<h6>User Email</h6>
 								</label>
 								<div class="form-group mx-3">
-									<input type="text" class="form-control" id="inputZip">
+									<input type="text" class="form-control" id="userEmail" name="userEmail">
 								</div>
 							</div>
 							<div class="row form-group ml-3">
-								<label class="my-2" for="mplikescount">
+								<label class="my-2" for="userAgeMin">
 									<h6>User Age</h6>
 								</label>
 								<div class="form-group col-md-2">
-									<input type="text" class="form-control" id="inputZip" placeholder="min">
+									<input type="text" class="form-control" id="userAgeMin" placeholder="min" name="userAgeMin">
 								</div>
 								<div class="my-2 mx-1">–</div>
 								<div class="form-group col-md-2">
-									<input type="text" class="form-control" id="inputZip" placeholder="max">
+									<input type="text" class="form-control" id="userAgeMan" placeholder="max" name="userAgeMax">
 								</div>
 							</div>
 						</div>
@@ -177,35 +177,35 @@
 						<div class="form-group my-3">
 							<h5>Awards</h5>
 							<div class="row form-group ml-3">
-								<label class="mt-2" for="mplikescount">
+								<label class="mt-2" for="mpAwardCountMin">
 									<h6>Award Count</h6>
 								</label>
 								<div class="form-group col-md-2">
-									<input type="text" class="form-control" id="inputZip" placeholder="min">
+									<input type="text" class="form-control" id="mpAwardCountMin" placeholder="min" name="mpAwardCountMin">
 								</div>
 								<div class="my-2 mx-1">–</div>
 								<div class="form-group col-md-2">
-									<input type="text" class="form-control" id="inputZip" placeholder="max">
+									<input type="text" class="form-control" id="mpAwardCountMax" placeholder="max" name="mpAwardCountMax">
 								</div>
 							</div>
-							<label class="ml-3" for="mplikescount">
+							<label class="ml-3" for="mpBestActor">
 								<h6>Award Name</h6>
 							</label>
 							<div class="form-row align-items-center ml-3">
 								<div class="col-auto">
-									<input type="checkbox" id="Crime" name="genre">
+									<input type="checkbox" id="mpBestActor" name="mpAward">
 									<label for="Crime" class="ml-2"> Best Actor </label>
 								</div>
 								<div class="col-auto ml-4">
-									<input type="checkbox" id="Crime" name="genre">
+									<input type="checkbox" id="mpBestDirector" name="mpAward">
 									<label for="Crime" class="ml-2"> Best Director </label>
 								</div>
 								<div class="col-auto ml-4">
-									<input type="checkbox" id="Crime" name="genre">
+									<input type="checkbox" id="mpBestProducer" name="mpAward">
 									<label for="Crime" class="ml-2"> Best Producer </label>
 								</div>
 								<div class="col-auto ml-4">
-									<input type="checkbox" id="Crime" name="genre">
+									<input type="checkbox" id="mpBestActorPV" name="mpAward">
 									<label for="Crime" class="ml-2"> Best Actor By Popular Vote </label>
 								</div>
 							</div>
@@ -214,67 +214,67 @@
 							<h5>Production Company</h5>
 							<div class="form-row align-items-center">
 								<div class="col-3">
-									<input type="checkbox" id="Crime" name="genre">
+									<input type="checkbox" id="BBC" name="company">
 									<label for="Crime" class="ml-2"> BBC </label>
 								</div>
 								<div class="col-3">
-									<input type="checkbox" id="Crime" name="genre">
+									<input type="checkbox" id="Bones" name="company">
 									<label for="Crime" class="ml-2"> Bones </label>
 								</div>
 								<div class="col-3">
-									<input type="checkbox" id="Crime" name="genre">
+									<input type="checkbox" id="Dreamworks" name="company">
 									<label for="Crime" class="ml-2"> Dreamworks </label>
 								</div>
 								<div class="col-3">
-									<input type="checkbox" id="Crime" name="genre">
+									<input type="checkbox" id="Gracie" name="company">
 									<label for="Crime" class="ml-2"> Gracie </label>
 								</div>
 								<div class="col-3">
-									<input type="checkbox" id="Crime" name="genre">
+									<input type="checkbox" id="Grammercy" name="company">
 									<label for="Crime" class="ml-2"> Grammercy </label>
 								</div>
 								<div class="col-3">
-									<input type="checkbox" id="Crime" name="genre">
+									<input type="checkbox" id="Gran Via" name="company">
 									<label for="Crime" class="ml-2"> Gran Via </label>
 								</div>
 								<div class="col-3">
-									<input type="checkbox" id="Crime" name="genre">
+									<input type="checkbox" id="Green Portal" name="company">
 									<label for="Crime" class="ml-2"> Green Portal </label>
 								</div>
 								<div class="col-3">
-									<input type="checkbox" id="Crime" name="genre">
+									<input type="checkbox" id="HBO" name="company">
 									<label for="Crime" class="ml-2"> HBO </label>
 								</div>
 								<div class="col-3">
-									<input type="checkbox" id="Crime" name="genre">
+									<input type="checkbox" id="High Bridge" name="company">
 									<label for="Crime" class="ml-2"> High Bridge </label>
 								</div>
 								<div class="col-3">
-									<input type="checkbox" id="Crime" name="genre">
+									<input type="checkbox" id="Marvel" name="company">
 									<label for="Crime" class="ml-2"> Marvel </label>
 								</div>
 								<div class="col-3">
-									<input type="checkbox" id="Crime" name="genre">
+									<input type="checkbox" id="Netflix" name="company">
 									<label for="Crime" class="ml-2"> Netflix </label>
 								</div>
 								<div class="col-3">
-									<input type="checkbox" id="Crime" name="genre">
+									<input type="checkbox" id="Summit" name="company">
 									<label for="Crime" class="ml-2"> Summit </label>
 								</div>
 								<div class="col-3">
-									<input type="checkbox" id="Crime" name="genre">
+									<input type="checkbox" id="Touchstone" name="company">
 									<label for="Crime" class="ml-2"> Touchstone </label>
 								</div>
 								<div class="col-3">
-									<input type="checkbox" id="Crime" name="genre">
+									<input type="checkbox" id="Two Brothers" name="company">
 									<label for="Crime" class="ml-2"> Two Brothers </label>
 								</div>
 								<div class="col-3">
-									<input type="checkbox" id="Crime" name="genre">
+									<input type="checkbox" id="Universal" name="company">
 									<label for="Crime" class="ml-2"> Universal </label>
 								</div>
 								<div class="col-3">
-									<input type="checkbox" id="Crime" name="genre">
+									<input type="checkbox" id="Warner Bros" name="company">
 									<label for="Crime" class="ml-2"> Warner Bros </label>
 								</div>
 							</div>
@@ -282,33 +282,33 @@
 						<div class="form-group my-3">
 							<h5>Location</h5>
 							<div class="row form-group ml-3">
-								<label class="my-2" for="mplikescount">
+								<label class="my-2" for="country">
 									<h6>Country</h6>
 								</label>
 								<div class="form-group mx-3">
-									<input type="text" class="form-control" id="inputZip">
+									<input type="text" class="form-control" id="country" name="shootingLocation">
 								</div>
 							</div>
 							<div class="row form-group ml-3">
-								<label class="my-2" for="mplikescount">
+								<label class="my-2" for="city">
 									<h6>City</h6>
 								</label>
 								<div class="form-group mx-3">
-									<input type="text" class="form-control" id="inputZip">
+									<input type="text" class="form-control" id="city" name="shootingCity">
 								</div>
 							</div>
 							<div class="row form-group ml-3">
-								<label class="my-2" for="mplikescount">
+								<label class="my-2" for="zip">
 									<h6>Zip</h6>
 								</label>
 								<div class="form-group mx-3">
-									<input type="text" class="form-control" id="inputZip">
+									<input type="text" class="form-control" id="zip" name="shootingZip">
 								</div>
 							</div>
 							<div class="row form-group ml-3">
 								<label for="exclusive"> Exclusive? </label>
 								<div class="form-group mx-3">
-									<input type="checkbox" id="exclusive" name="location">
+									<input type="checkbox" id="exclusive" name="exclusive">
 								</div>
 							</div>
 						</div>
@@ -316,11 +316,11 @@
 							<h5>Box Office Collection (Movies Only)</h5>
 							<div class="row form-group">
 								<div class="form-group col-md-2">
-									<input type="text" class="form-control" id="inputZip" placeholder="min">
+									<input type="text" class="form-control" id="collectionMin" placeholder="min" name="collectionMin">
 								</div>
 								<div class="my-2 mx-1">–</div>
 								<div class="form-group col-md-2">
-									<input type="text" class="form-control" id="inputZip" placeholder="max">
+									<input type="text" class="form-control" id="collectionMax" placeholder="max" name="collectionMax">
 								</div>
 							</div>
 						</div>
@@ -328,11 +328,11 @@
 							<h5>Season Count (Series Only)</h5>
 							<div class="row form-group">
 								<div class="form-group col-md-2">
-									<input type="text" class="form-control" id="inputZip" placeholder="min">
+									<input type="text" class="form-control" id="seasonCountMin" placeholder="min" name="seasonCountMin">
 								</div>
 								<div class="my-2">–</div>
 								<div class="form-group col-md-2">
-									<input type="text" class="form-control" id="inputZip" placeholder="max">
+									<input type="text" class="form-control" id="seasonCountMax" placeholder="max" name="seasonCountMax">
 								</div>
 							</div>
 						</div>
@@ -352,7 +352,7 @@
 					<div class="card-body">
 						<div class="form-group my-3">
 							<h5>Name</h5>
-							<input type="text" class="form-control" id="mpname" name="mpname">
+							<input type="text" class="form-control" id="pName" name="pName">
 						</div>
 						<div class="form-group my-3">
 							<h5>Birthday</h5>
@@ -370,31 +370,31 @@
 						<div class="form-group my-3">
 							<h5>Role</h5>
 							<div class="row form-group ml-3">
-								<label class="mt-2" for="mplikescount">
+								<label class="mt-2" for="roleCountMin">
 									<h6>Role Count</h6>
 								</label>
 								<div class="form-group col-md-2">
-									<input type="text" class="form-control" id="inputZip" placeholder="min">
+									<input type="text" class="form-control" id="roleCountMin" placeholder="min" name="roleCountMin">
 								</div>
 								<div class="my-2 mx-1">–</div>
 								<div class="form-group col-md-2">
-									<input type="text" class="form-control" id="inputZip" placeholder="max">
+									<input type="text" class="form-control" id="roleCountMax" placeholder="max" name="roleCountMax">
 								</div>
 							</div>
-							<label class="ml-3" for="mplikescount">
+							<label class="ml-3" for="roleName">
 								<h6>Role Name</h6>
 							</label>
 							<div class="form-row align-items-center ml-3">
 								<div class="col-2">
-									<input type="checkbox" id="Crime" name="genre">
+									<input type="checkbox" id="actor" name="roleName">
 									<label for="Crime" class="ml-2"> Actor </label>
 								</div>
 								<div class="col-2">
-									<input type="checkbox" id="Crime" name="genre">
+									<input type="checkbox" id="producer" name="roleName">
 									<label for="Crime" class="ml-2"> Director </label>
 								</div>
 								<div class="col-2">
-									<input type="checkbox" id="Crime" name="genre">
+									<input type="checkbox" id="producer" name="roleName">
 									<label for="Crime" class="ml-2"> Producer </label>
 								</div>
 							</div>
@@ -402,35 +402,35 @@
 						<div class="form-group my-3">
 							<h5>Awards</h5>
 							<div class="row form-group ml-3">
-								<label class="mt-2" for="mplikescount">
+								<label class="mt-2" for="pAwardCountMin">
 									<h6>Award Count</h6>
 								</label>
 								<div class="form-group col-md-2">
-									<input type="text" class="form-control" id="inputZip" placeholder="min">
+									<input type="text" class="form-control" id="pAwardCountMin" placeholder="min" name="pAwardCountMin">
 								</div>
 								<div class="my-2 mx-1">–</div>
 								<div class="form-group col-md-2">
-									<input type="text" class="form-control" id="inputZip" placeholder="max">
+									<input type="text" class="form-control" id="pAwardCountMax" placeholder="max" name="pAwardCountMax">
 								</div>
 							</div>
-							<label class="ml-3" for="mplikescount">
+							<label class="ml-3" for="pAwardName">
 								<h6>Award Name</h6>
 							</label>
 							<div class="form-row align-items-center ml-3">
 								<div class="col-auto">
-									<input type="checkbox" id="Crime" name="genre">
+									<input type="checkbox" id="pBestActor" name="pAwardName">
 									<label for="Crime" class="ml-2"> Best Actor </label>
 								</div>
 								<div class="col-auto ml-4">
-									<input type="checkbox" id="Crime" name="genre">
+									<input type="checkbox" id="pBestDirector" name="pAwardName">
 									<label for="Crime" class="ml-2"> Best Director </label>
 								</div>
 								<div class="col-auto ml-4">
-									<input type="checkbox" id="Crime" name="genre">
+									<input type="checkbox" id="pBestProducer" name="pAwardName">
 									<label for="Crime" class="ml-2"> Best Producer </label>
 								</div>
 								<div class="col-auto ml-4">
-									<input type="checkbox" id="Crime" name="genre">
+									<input type="checkbox" id="pBestProducerPV" name="pAwardName">
 									<label for="Crime" class="ml-2"> Best Actor By Popular Vote </label>
 								</div>
 							</div>
@@ -439,18 +439,18 @@
 							<h5>Gender</h5>
 							<div class="row">
 								<div class="mx-3">
-									<input type="radio" id="mpmovie" class="form-check form-check-inline" name="mptype">
+									<input type="radio" id="male" class="form-check form-check-inline" name="gender">
 									<label for="mpmovie">Male</label>
 								</div>
 								<div class="mx-3">
-									<input type="radio" id="mpmovie" class="form-check form-check-inline" name="mptype">
+									<input type="radio" id="female" class="form-check form-check-inline" name="gender">
 									<label for="mpmovie">Female</label>
 								</div>
 							</div>
 						</div>
 						<div class="form-group my-3">
 							<h5>Nationality</h5>
-							<input type="text" class="form-control" id="mpname" name="mpname">
+							<input type="text" class="form-control" id="nationality" name="nationality">
 						</div>
 					</form>
 					</div>
