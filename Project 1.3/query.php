@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -42,84 +43,21 @@
 		$conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
 		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-		// Like movie
-		if(isset($_POST["likedMP"])) {
-
-			$user = $_POST['email'];
-			$movie = $_POST['likedMP'];
-
-			try {
-
-				// check user credentials
-				$stmt = $conn->prepare("SELECT uemail FROM user WHERE uemail = '$user'");
-				$stmt->execute();
-				$result = $stmt->fetch(PDO::FETCH_ASSOC);
-				if ($result == 0) {
-					echo "<div class='d-flex justify-content-center' style='color:red'>
-							<p style='text-align:center color:red'>Error: invalid user email</p>
-						</div>";
-				} else {
-
-					// extract mpid
-					$stmt = $conn->prepare("SELECT mpid FROM motionpicture WHERE name = '$movie'");
-					$stmt->execute();
-					$result = $stmt->fetch(PDO::FETCH_ASSOC);
-
-					if ($result == 0) {
-						echo "<div class='d-flex justify-content-center' style='color:red'>
-							<p style='text-align:center'>Error: motion picture not in database</p>
-							</div>";
-					} else {
-
-						// add likes
-						foreach($result as $k=>$v) {
-							$stmt = $conn->prepare("INSERT INTO likes VALUES ('$user', '$v')");
-							$stmt->execute();
-						}
-					}
-				}
-			}
-			catch(PDOException $e) {
-				echo "Error: " . $e->getMessage();
-			}
-		}
-
-		$columns = array();
-		$columns ["motionpicture"] = ["Name", "Genre", "Rating", "Production", "Budget", "Likes"];
-		$columns ["movie"] = ["Name", "Genre", "Rating", "Production", "Budget", "Likes", "Box Office Collection"];
-		$columns ["series"] = ["Name", "Genre", "Rating", "Production", "Budget", "Likes", "Season Count"];
-		$columns ["people"] = ["Name", "Nationality", "Birthday", "Gender", "Role"];
-		$columns ["role"] = ["Motion Picture", "Person", "Role"];
-		$columns ["award"] = ["Motion Picture", "Person", "Award Name", "Award Year"];
-		$columns ["location"] = ["Motion Picture", "Country", "City", "Zip"];
-		$columns ["likes"] = ["Motion Picture", "User"];
-
-		$querySelect = array();
-		$querySelect ["motionpicture"] = "name, genre_name, rating, production, budget, like_count";
-		$querySelect ["movie"] = "name, genre_name, rating, production, budget, like_count, boxoffice_collection";
-		$querySelect ["series"] = "name, genre_name, rating, production, budget, like_count, season_count";
-		$querySelect ["people"] = "name, nationality, dob, gender, role_name";
-		$querySelect ["role"] = "mp_name, p_name, role_name";
-		$querySelect ["award"] = "mp_name, p_name, award_name, award_year";
-		$querySelect ["location"] = "mp_name, country, city, zip";
-		$querySelect ["likes"] = "mp_name, user_name";
+		echo $_SESSION["filter-title"];
 		
 					
 		// Preset queries
 		if(isset($_POST["allTables"])) {
-			$title = "Movies";
 			$table = "movie";
 			$query = "WITH liked_mps AS (SELECT mpid, COUNT(*) AS like_count FROM likes GROUP BY mpid)
 					SELECT $querySelect[$table]
 					FROM movie NATURAL JOIN genre NATURAL JOIN motionpicture NATURAL JOIN liked_mps";
 		} elseif(isset($_POST["allMovies"])) {
-			$title = "Movies";
 			$table = "movie";
 			$query = "WITH liked_mps AS (SELECT mpid, COUNT(*) AS like_count FROM likes GROUP BY mpid)
 					SELECT $querySelect[$table]
 					FROM movie NATURAL JOIN genre NATURAL JOIN motionpicture NATURAL JOIN liked_mps";
 		} elseif(isset($_POST["allActors"])) {
-			$title = "Actors";
 			$table = "people";
 			$query = "WITH actors AS (SELECT pid, role_name FROM role WHERE role_name = 'Actor')
 					SELECT $querySelect[$table] 
@@ -133,49 +71,33 @@
 			$equality = $_POST["equality"];
 			$parameter = $_POST["parameter"];
 
-			$title = "";
-
 			// Edge cases
 			if ($table == "motionpicture") {
-				$title = "Motion Pictures ";
 				$query = "WITH liked_mps AS (SELECT mpid, COUNT(*) AS like_count FROM likes GROUP BY mpid)
 					SELECT $querySelect[$table]
 					FROM $table NATURAL JOIN genre NATURAL JOIN liked_mps
 					WHERE $attribute $equality '$parameter'";
 			} else if ($table == "movie" || $table == "series") {
-				if($table == "movie"){
-					$title = "Movies ";
-				} else{
-					$title = "Series ";
-				}
 				$query = "WITH liked_mps AS (SELECT mpid, COUNT(*) AS like_count FROM likes GROUP BY mpid)
 					SELECT $querySelect[$table]
 					FROM $table NATURAL JOIN genre NATURAL JOIN motionpicture NATURAL JOIN liked_mps
 					WHERE $attribute $equality '$parameter'";
 			} else if ($table == "people") {
-				$title = "People ";
 				$query = "SELECT $querySelect[$table]
 					FROM $table NATURAL JOIN role
 					WHERE $attribute $equality '$parameter'";
 			} else if ($table == "role" || $table == "award") {
-				if($table == "award"){
-					$title = "Awards ";
-				} else{
-					$title = "Roles ";
-				}
 				$query = "WITH mp_names AS (SELECT mpid, name AS mp_name FROM motionpicture),
 					p_names AS (SELECT pid, name AS p_name FROM people)
 					SELECT $querySelect[$table]
 					FROM mp_names NATURAL JOIN p_names NATURAL JOIN $table
 					WHERE $attribute $equality '$parameter'";
 			} else if ($table == "location") {
-				$title = "Locations ";
 				$query = "WITH mp_names AS (SELECT mpid, name AS mp_name FROM motionpicture)
 					SELECT $querySelect[$table]
 					FROM mp_names NATURAL JOIN $table
 					WHERE $attribute $equality '$parameter'";
 			} else if ($table == "likes") {
-				$title = "Likes ";
 				$query = "WITH mp_names AS (SELECT mpid, name AS mp_name FROM motionpicture),
 					user_names AS (SELECT uemail, name AS user_name FROM user)
 					SELECT $querySelect[$table]
@@ -184,7 +106,6 @@
 			}
 		// If no button has been clicked, default to display all motion pictures
 		} else {
-			$title = "Motion Pictures ";
 			$table = "motionpicture";
 			$query = "WITH liked_mps AS (SELECT mpid, COUNT(*) AS like_count FROM likes GROUP BY mpid)
 					SELECT $querySelect[$table]
@@ -192,7 +113,6 @@
 					WHERE $attribute $equality '$parameter'";
 		}
 		// we will now create a table from PHP side 
-		echo "<h1>$title</h1>";
 		echo "<table class='table table-md table-bordered'>";
 		echo "<thead class='thead-dark' style='text-align: center'>";
 
@@ -258,7 +178,7 @@
 <script>
 	// return home
 	$("#goHome").click(function(e) {
-		window.location.href = document.referrer;
+		window.location.href = "http://localhost/COSI127b/motion-picture-db/Project%201.3/";
 	});
 </script>
 
